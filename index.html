@@ -3,342 +3,266 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TensorBlack — Inference infrastructure for teams that ship</title>
-<meta name="description" content="TensorBlack is the front door to your models: one endpoint, deterministic routing, and observability that survives production.">
-<meta name="theme-color" content="#08080A">
-<meta property="og:title" content="TensorBlack — Inference infrastructure for teams that ship">
-<meta property="og:description" content="One endpoint, deterministic routing, and observability that survives production.">
+<title>Company — TensorBlack</title>
+<meta name="description" content="TensorBlack is a physician-led media and education company built for cancer care. We publish, convene, and teach with the clinicians and administrators who carry the decision.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Company — TensorBlack">
+<meta property="og:description" content="A physician-led media and education company built for cancer care.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23D97757'/><path d='M9 21 16 9l7 12z' fill='%23150F0C'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><rect x='6' y='14' width='20' height='4' fill='%23E8A317'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" id="header">
-  <div class="wrap nav">
-    <a class="brand" href="#top">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M4 19 12 5l8 14z" fill="#150F0C"/></svg>
-      </span>
-      Tensor<em>Black</em>
-    </a>
-
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#platform">Platform</a></li>
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#numbers">Numbers</a></li>
-      <li><a href="#start">Docs</a></li>
-    </ul>
-
-    <div class="nav-cta">
-      <a class="btn btn-ghost" href="#start">Sign in</a>
-      <a class="btn btn-primary" href="#start">
-        Get access
-        <svg class="btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-      </a>
-      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="wordmark" href="/">TensorBlack</a>
+    <nav aria-label="Primary">
+      <ul class="nav">
+        <li><a href="/content">Content</a></li>
+        <li><a href="/programs">Programs</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/faculty">Faculty</a></li>
+        <li><a href="/company" aria-current="page">Company</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- ============================ HERO ============================ -->
-  <section class="wrap hero" id="top">
-    <div class="hero-grid">
-      <div>
-        <span class="badge">
-          <span class="dot" aria-hidden="true"></span>
-          <b>v2.4</b> — streaming routes are live
-        </span>
-
-        <h1>The front door to<br><span class="grad">every model you run.</span></h1>
-
-        <p class="hero-lede">
-          One endpoint in front of your fleet. TensorBlack routes each request
-          deterministically, keeps the trace, and tells you exactly what a
-          token cost you.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#start">
-            Start building
-            <svg class="btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="#how">See how it works</a>
-        </div>
-
-        <div class="hero-meta">
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
-            Drop-in OpenAI-compatible API
-          </span>
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
-            Self-host or managed
-          </span>
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
-            No egress on cached hits
-          </span>
-        </div>
-      </div>
-
-      <!-- Tensor lattice: nodes are models, live edges are routed traffic -->
-      <div class="lattice" role="img" aria-label="Diagram of a routing lattice: one gateway node fanning traffic out to a grid of model nodes.">
-        <svg viewBox="0 0 400 400" aria-hidden="true">
-          <defs>
-            <radialGradient id="core" cx="50%" cy="50%">
-              <stop offset="0%" stop-color="#E89A7E"/>
-              <stop offset="100%" stop-color="#D97757"/>
-            </radialGradient>
-          </defs>
-
-          <!-- static lattice -->
-          <g class="edge">
-            <path d="M80 80 H320 M80 160 H320 M80 240 H320 M80 320 H320"/>
-            <path d="M80 80 V320 M160 80 V320 M240 80 V320 M320 80 V320"/>
-          </g>
-
-          <!-- routed paths from the gateway -->
-          <g class="edge-live">
-            <path class="flow"   d="M200 200 L200 80  L320 80"/>
-            <path class="flow flow-2" d="M200 200 L80 200 L80 320"/>
-            <path class="flow flow-3" d="M200 200 L320 200 L320 320"/>
-          </g>
-
-          <!-- dim nodes -->
-          <g class="node-dim">
-            <circle cx="80"  cy="80"  r="3.5"/>
-            <circle cx="160" cy="80"  r="3.5"/>
-            <circle cx="240" cy="80"  r="3.5"/>
-            <circle cx="80"  cy="160" r="3.5"/>
-            <circle cx="240" cy="160" r="3.5"/>
-            <circle cx="320" cy="160" r="3.5"/>
-            <circle cx="160" cy="240" r="3.5"/>
-            <circle cx="240" cy="240" r="3.5"/>
-            <circle cx="160" cy="320" r="3.5"/>
-            <circle cx="240" cy="320" r="3.5"/>
-          </g>
-
-          <!-- live nodes -->
-          <g class="node">
-            <circle class="pulse"        cx="320" cy="80"  r="5"/>
-            <circle class="pulse pulse-2" cx="80"  cy="320" r="5"/>
-            <circle class="pulse pulse-3" cx="320" cy="320" r="5"/>
-            <circle class="pulse pulse-4" cx="160" cy="160" r="5"/>
-            <circle class="pulse pulse-2" cx="80"  cy="200" r="4"/>
-            <circle class="pulse pulse-3" cx="320" cy="200" r="4"/>
-            <circle class="pulse"        cx="200" cy="80"  r="4"/>
-          </g>
-
-          <!-- gateway -->
-          <circle cx="200" cy="200" r="20" fill="none" stroke="#D97757" stroke-width="1" opacity=".35"/>
-          <circle cx="200" cy="200" r="30" fill="none" stroke="#D97757" stroke-width="1" opacity=".16"/>
-          <circle cx="200" cy="200" r="10" fill="url(#core)"/>
-        </svg>
-        <p class="lattice-caption"><b>gateway</b> · 7 pools · 3 live routes</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ TRUST STRIP ============================ -->
-  <section class="wrap strip" data-reveal>
-    <p class="strip-label">Running in production at</p>
-    <div class="strip-row">
-      <span>Northwind</span>
-      <span>Halcyon Labs</span>
-      <span>Ardent</span>
-      <span>Ravenglass</span>
-      <span>Sixth Signal</span>
-    </div>
-  </section>
-
-  <div class="wrap"><hr class="rule"></div>
-
-  <!-- ============================ PLATFORM ============================ -->
-  <section class="wrap section" id="platform">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Platform</span>
-      <h2 class="section-title">Everything between your app and the GPU.</h2>
-      <p class="lede">
-        The parts you would otherwise write twice: routing, caching, limits,
-        and a trace you can actually read at 3am.
+  <!-- 1 — Hero ------------------------------------------------------------ -->
+  <section class="band">
+    <div class="wrap hero-inner">
+      <h1>The GPS for oncology.</h1>
+      <p class="standfirst">
+        Guiding providers, innovators, and investors through high-stakes
+        decisions at the intersection of cancer care and AI.
       </p>
     </div>
-
-    <div class="cards">
-      <article class="card" data-reveal>
-        <div class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM18 9v3a6 6 0 0 1-6 6H6"/></svg>
-        </div>
-        <h3>Deterministic routing</h3>
-        <p>Pin a request class to a pool by rule, not by luck. The same input takes the same path every time, so a regression is reproducible.</p>
-        <span class="card-tag">Weighted · Sticky · Failover</span>
-      </article>
-
-      <article class="card" data-reveal>
-        <div class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
-        </div>
-        <h3>Prefix cache that sticks</h3>
-        <p>Shared prefixes are held warm across the fleet. Long system prompts stop costing you the same tokens on every single call.</p>
-        <span class="card-tag">Warm · Shared · Metered</span>
-      </article>
-
-      <article class="card" data-reveal>
-        <div class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l4-6 4 4 3-5 3 4 4-6"/><path d="M3 21h18"/></svg>
-        </div>
-        <h3>Traces, not guesses</h3>
-        <p>Every call carries a span: which pool answered, what it queued behind, tokens in and out, and the cost attributed to a team.</p>
-        <span class="card-tag">OTel · Per-team · Exportable</span>
-      </article>
-
-      <article class="card" data-reveal>
-        <div class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-        </div>
-        <h3>Keys with a blast radius</h3>
-        <p>Scope a key to a pool, a budget, and a rate. Rotate it without a deploy, and revoke it before the incident channel fills up.</p>
-        <span class="card-tag">Scoped · Budgeted · Rotatable</span>
-      </article>
-
-      <article class="card" data-reveal>
-        <div class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
-        </div>
-        <h3>Shadow and split</h3>
-        <p>Mirror live traffic to a candidate model, compare outputs offline, then shift the split a percent at a time when the numbers hold.</p>
-        <span class="card-tag">Mirror · Diff · Ramp</span>
-      </article>
-
-      <article class="card" data-reveal>
-        <div class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg>
-        </div>
-        <h3>Yours to host</h3>
-        <p>Run the whole control plane in your own VPC. Same binary as the managed tier, no phone-home, no feature held back.</p>
-        <span class="card-tag">VPC · Air-gapped · Same build</span>
-      </article>
-    </div>
   </section>
 
-  <!-- ============================ NUMBERS ============================ -->
-  <section class="wrap section" id="numbers">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Numbers</span>
-      <h2 class="section-title">Measured on the boring days too.</h2>
-    </div>
-
-    <dl class="stats" data-reveal>
-      <div class="stat">
-        <dt>18<span class="unit">ms</span></dt>
-        <dd>Median gateway overhead</dd>
-      </div>
-      <div class="stat">
-        <dt>64<span class="unit">%</span></dt>
-        <dd>Prefix cache hit rate</dd>
-      </div>
-      <div class="stat">
-        <dt>99.98<span class="unit">%</span></dt>
-        <dd>Rolling 90-day availability</dd>
-      </div>
-      <div class="stat">
-        <dt>7<span class="unit">×</span></dt>
-        <dd>Cheaper per cached call</dd>
-      </div>
-    </dl>
-  </section>
-
-  <!-- ============================ HOW ============================ -->
-  <section class="wrap section" id="how">
-    <div class="split">
-      <div data-reveal>
-        <span class="eyebrow">How it works</span>
-        <h2 class="section-title">Three steps, one afternoon.</h2>
-        <p class="lede" style="margin-bottom:36px">
-          Point your existing client at the gateway. Nothing else in your
-          application has to change on day one.
+  <!-- 2 — Who we are ------------------------------------------------------ -->
+  <section class="band" id="who-we-are" aria-labelledby="who-h">
+    <div class="wrap band-inner">
+      <p class="rail">Who we are</p>
+      <div class="col prose">
+        <h2 class="h-section" id="who-h">
+          A physician-led media and education company built for cancer care
+        </h2>
+        <p>
+          TensorBlack was founded by practicing oncologists and health system
+          operators who were being asked the same question from every
+          direction: which of these AI tools is real, and what happens to my
+          patients and my margins if I get it wrong?
         </p>
-
-        <ol class="steps">
-          <li class="step">
-            <span class="step-n">01</span>
-            <div>
-              <h3>Register a pool</h3>
-              <p>Describe where a model lives — your cluster, a vendor, or both — and TensorBlack starts health-checking it.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step-n">02</span>
-            <div>
-              <h3>Write one rule</h3>
-              <p>Send this class of request to that pool, with a budget and a fallback. Rules are versioned and diffable.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step-n">03</span>
-            <div>
-              <h3>Swap the base URL</h3>
-              <p>Change one string in your client. Traces, caching, and limits apply from the very first call.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-
-      <div class="terminal" data-reveal>
-        <div class="terminal-bar">
-          <i></i><i></i><i></i>
-          <span>route.py</span>
-        </div>
-<pre><code><span class="tok-c"># 1 — point the client at the gateway</span>
-<span class="tok-k">from</span> <span class="tok-n">openai</span> <span class="tok-k">import</span> <span class="tok-n">OpenAI</span>
-
-<span class="tok-n">client</span> = <span class="tok-f">OpenAI</span>(
-    <span class="tok-n">base_url</span>=<span class="tok-s">"https://gw.tensorblack.io/v1"</span>,
-    <span class="tok-n">api_key</span>=<span class="tok-n">os</span>.<span class="tok-n">environ</span>[<span class="tok-s">"TB_KEY"</span>],
-)
-
-<span class="tok-c"># 2 — name a route, not a model</span>
-<span class="tok-n">reply</span> = <span class="tok-n">client</span>.<span class="tok-n">chat</span>.<span class="tok-n">completions</span>.<span class="tok-f">create</span>(
-    <span class="tok-n">model</span>=<span class="tok-s">"route:summarize@stable"</span>,
-    <span class="tok-n">messages</span>=[{<span class="tok-s">"role"</span>: <span class="tok-s">"user"</span>, <span class="tok-s">"content"</span>: <span class="tok-n">doc</span>}],
-    <span class="tok-n">extra_headers</span>={<span class="tok-s">"x-tb-team"</span>: <span class="tok-s">"search"</span>},
-)
-
-<span class="tok-c"># 3 — the trace comes back with it</span>
-<span class="tok-f">print</span>(<span class="tok-n">reply</span>.<span class="tok-n">tb</span>.<span class="tok-n">pool</span>, <span class="tok-n">reply</span>.<span class="tok-n">tb</span>.<span class="tok-n">cache_hit</span>, <span class="tok-n">reply</span>.<span class="tok-n">tb</span>.<span class="tok-n">cost_usd</span>)
-<span class="tok-c">#  a100-eu-west   True   0.00019</span>
-</code></pre>
+        <p>
+          We answer that question in public. We publish, we convene, and we
+          teach — through a weekly podcast and newsletter, an executive
+          roundtable, a national summit, and a course library. Everything we
+          make is produced with clinicians and administrators who carry the
+          decision themselves.
+        </p>
+        <p>
+          We are not a consultancy and we do not resell software. Our work is
+          editorial, educational, and convening, and it is built on a faculty
+          bench that spans the specialties where cancer is actually treated.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ============================ CTA ============================ -->
-  <section class="wrap section" id="start">
-    <div class="cta" data-reveal>
-      <span class="eyebrow">Get access</span>
-      <h2>Put one door in front of the fleet.</h2>
-      <p>
-        Bring a pool and a key. If the gateway is not in your critical path
-        within an afternoon, we would rather hear why.
-      </p>
-      <div class="cta-actions">
-        <a class="btn btn-primary" href="#start">
-          Request an org
-          <svg class="btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-ghost" href="#platform">Read the docs</a>
+  <!-- 3 — What we operate ------------------------------------------------- -->
+  <section class="band" id="what-we-operate" aria-labelledby="operate-h">
+    <div class="wrap band-inner">
+      <p class="rail">What we operate</p>
+      <div class="col">
+        <h2 class="h-section" id="operate-h">
+          Owned content, programs, events, and the people behind them
+        </h2>
+
+        <div class="blocks">
+
+          <article class="block">
+            <div>
+              <h3>Owned content</h3>
+              <p>
+                The AI &amp; Healthcare podcast and video series, the weekly
+                newsletter, and the AI Academy course library — original
+                programming produced in-house, not licensed or syndicated.
+              </p>
+              <a class="link block-link" href="/content">See the content library</a>
+            </div>
+            <div class="figures">
+              <div>000<span>Episodes published</span></div>
+              <div>000<span>Newsletter subscribers</span></div>
+            </div>
+          </article>
+
+          <article class="block">
+            <div>
+              <h3>Programs</h3>
+              <p>
+                The CEO Round Table brings cancer program executives together
+                in a closed session to compare what they are actually
+                deploying. Academy cohorts take teams from foundational
+                concepts to implementation.
+              </p>
+              <a class="link block-link" href="/programs">See current programs</a>
+            </div>
+            <div class="figures">
+              <div>000<span>Executives in the Round Table</span></div>
+              <div>000<span>Institutions represented</span></div>
+            </div>
+          </article>
+
+          <article class="block">
+            <div>
+              <h3>Events</h3>
+              <p>
+                SHIFT is our national summit on driving innovation in oncology
+                care, convening clinical, operational, and policy leaders
+                around the decisions in front of them this year rather than the
+                ones five years out.
+              </p>
+              <a class="link block-link" href="/events">See SHIFT and upcoming events</a>
+            </div>
+            <div class="figures">
+              <div>000<span>Attendees, SHIFT Austin 2026</span></div>
+              <div>000<span>Speakers on the program</span></div>
+            </div>
+          </article>
+
+          <article class="block">
+            <div>
+              <h3>Faculty</h3>
+              <p>
+                A standing bench of oncology clinicians, administrators, and
+                policy specialists who host, teach, speak, and advise across
+                everything above. Faculty are the through-line, not a credits
+                list.
+              </p>
+              <a class="link block-link" href="/faculty">Meet the faculty</a>
+            </div>
+            <div class="figures">
+              <div>000<span>Faculty members</span></div>
+              <div>000<span>Specialties covered</span></div>
+            </div>
+          </article>
+
+        </div>
       </div>
-      <p class="cta-note">no card · self-host anytime · export your traces</p>
+    </div>
+  </section>
+
+  <!-- 4 — Where we have depth --------------------------------------------- -->
+  <section class="band" id="where-we-have-depth" aria-labelledby="depth-h">
+    <div class="wrap band-inner">
+      <p class="rail">Where we have depth</p>
+      <div class="col">
+        <h2 class="h-section" id="depth-h">
+          Our faculty covers nearly every corner of cancer care
+        </h2>
+
+        <fieldset class="filters" id="filters">
+          <legend>Filter coverage areas</legend>
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All areas</button>
+          <button class="filter" type="button" data-filter="clinical" aria-pressed="false">Clinical</button>
+          <button class="filter" type="button" data-filter="operations" aria-pressed="false">Operations</button>
+          <button class="filter" type="button" data-filter="policy" aria-pressed="false">Policy and regulation</button>
+          <button class="filter" type="button" data-filter="data" aria-pressed="false">Data and technology</button>
+        </fieldset>
+
+        <div class="board" id="board">
+          <div class="area" data-group="clinical">Medical oncology</div>
+          <div class="area" data-group="clinical">Radiation oncology</div>
+          <div class="area" data-group="clinical">Surgical oncology</div>
+          <div class="area" data-group="clinical">Hematology</div>
+          <div class="area" data-group="clinical">Breast</div>
+          <div class="area" data-group="clinical">Gastrointestinal</div>
+          <div class="area" data-group="clinical">Genitourinary</div>
+          <div class="area" data-group="clinical">Thoracic</div>
+          <div class="area" data-group="clinical">Head and neck</div>
+          <div class="area" data-group="clinical">Gynecologic</div>
+          <div class="area" data-group="clinical">Neuro-oncology</div>
+          <div class="area" data-group="clinical">Melanoma and skin</div>
+          <div class="area" data-group="clinical">Sarcoma</div>
+          <div class="area" data-group="clinical">Pediatric oncology</div>
+          <div class="area" data-group="clinical">Pathology</div>
+          <div class="area" data-group="clinical">Radiology and imaging</div>
+          <div class="area" data-group="clinical">Palliative and supportive care</div>
+          <div class="area" data-group="clinical">Survivorship</div>
+
+          <div class="area" data-group="operations">Infusion operations</div>
+          <div class="area" data-group="operations">Oncology pharmacy</div>
+          <div class="area" data-group="operations">Oncology nursing</div>
+          <div class="area" data-group="operations">Practice administration</div>
+          <div class="area" data-group="operations">Revenue cycle</div>
+          <div class="area" data-group="operations">Care navigation</div>
+
+          <div class="area" data-group="policy">Government affairs</div>
+          <div class="area" data-group="policy">Regulatory strategy</div>
+          <div class="area" data-group="policy">Payer and value-based care</div>
+          <div class="area" data-group="policy">Reimbursement policy</div>
+          <div class="area" data-group="policy">Health equity and access</div>
+
+          <div class="area" data-group="data">Clinical informatics</div>
+          <div class="area" data-group="data">Precision medicine and genomics</div>
+          <div class="area" data-group="data">Real-world data</div>
+          <div class="area" data-group="data">Clinical trial design</div>
+          <div class="area" data-group="data">AI governance and validation</div>
+        </div>
+
+        <p class="board-status" id="board-status" role="status" aria-live="polite"></p>
+        <p class="board-note">Each area maps to named faculty on the <a class="link" href="/faculty">faculty page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 — How we work ------------------------------------------------------ -->
+  <section class="band band-field" id="how-we-work" aria-labelledby="how-h">
+    <div class="wrap band-inner">
+      <p class="rail">How we work</p>
+      <div class="col prose">
+        <h2 class="h-section" id="how-h">
+          Independence, disclosure, and who pays for what
+        </h2>
+        <p>
+          Editorial and educational content is developed by TensorBlack faculty
+          and staff. Sponsors and commercial partners do not select topics,
+          review content prior to publication, or approve faculty.
+        </p>
+        <p>
+          Faculty disclose financial relationships relevant to the subject
+          matter, and those disclosures are published alongside the content.
+          Sponsored placements are labeled as such wherever they appear.
+        </p>
+        <p>
+          Media production and event operations are run through Loran Media
+          Group. Advisory relationships, where they exist, are separated from
+          editorial and disclosed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 — Working with TensorBlack ----------------------------------------- -->
+  <section class="band" id="working-with-tensorblack" aria-labelledby="work-h">
+    <div class="wrap band-inner">
+      <p class="rail">Working with TensorBlack</p>
+      <div class="col prose">
+        <h2 class="h-section" id="work-h">Working with TensorBlack</h2>
+        <p>
+          For sponsorship, faculty nominations, speaking, and press, one inbox
+          reaches the team.
+        </p>
+        <a class="btn" href="/contact">Get in touch</a>
+      </div>
     </div>
   </section>
 
@@ -346,52 +270,39 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="brand" href="#top">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 19 12 5l8 14z" fill="#150F0C"/></svg>
-          </span>
-          Tensor<em>Black</em>
-        </a>
-        <p>Inference infrastructure for teams who would rather ship than babysit a fleet.</p>
-      </div>
+    <div class="footer-cols">
+      <p class="footer-descriptor">
+        A physician-led media and education company built for cancer care.
+      </p>
 
-      <div class="footer-col">
-        <h4>Product</h4>
+      <nav aria-labelledby="f-explore">
+        <h2 id="f-explore">Explore</h2>
         <ul>
-          <li><a href="#platform">Platform</a></li>
-          <li><a href="#how">Routing</a></li>
-          <li><a href="#numbers">Benchmarks</a></li>
-          <li><a href="#start">Pricing</a></li>
+          <li><a href="/content">Content</a></li>
+          <li><a href="/programs">Programs</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/faculty">Faculty</a></li>
         </ul>
-      </div>
+      </nav>
 
-      <div class="footer-col">
-        <h4>Developers</h4>
+      <nav aria-labelledby="f-company">
+        <h2 id="f-company">Company</h2>
         <ul>
-          <li><a href="#start">Quickstart</a></li>
-          <li><a href="#start">API reference</a></li>
-          <li><a href="#start">Self-hosting</a></li>
-          <li><a href="#start">Status</a></li>
+          <li><a href="/company">About</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/terms">Terms of use</a></li>
+          <li><a href="/privacy">Privacy policy</a></li>
         </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#top">About</a></li>
-          <li><a href="#top">Changelog</a></li>
-          <li><a href="#top">Security</a></li>
-          <li><a href="#top">Contact</a></li>
-        </ul>
-      </div>
+      </nav>
     </div>
 
-    <div class="footer-base">
-      <span>© 2026 TensorBlack. All rights reserved.</span>
-      <span>Built for the 3am pager.</span>
-    </div>
+    <p class="fine-print">
+      TensorBlack produces independent editorial and educational content for
+      oncology professionals. Sponsored content is labeled. Nothing published
+      by TensorBlack is medical advice or a recommendation to purchase any
+      product or service.
+    </p>
   </div>
 </footer>
 
