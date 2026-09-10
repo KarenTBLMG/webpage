@@ -459,3 +459,112 @@ a.link:hover { text-decoration-color: var(--ink); }
     animation-duration: .001ms !important;
   }
 }
+
+/* ==========================================================================
+   Working with TensorBlack
+   Shares every token above. The three devices below are specific to that
+   page: the routes in, the commercial boundary, and the sequence.
+   ========================================================================== */
+
+/* Routes in — same hairline-row treatment as the capability blocks, with the
+   right-hand column carrying what to put in the email rather than a figure. */
+.routes { border-top: 1px solid var(--rule); margin-top: 8px; }
+
+.route {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 20px 48px;
+  padding-block: 30px;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.route h3 { font-size: 19px; margin-bottom: 9px; }
+.route p { color: var(--ink-2); font-size: 17px; }
+
+.send h4 {
+  font-family: var(--display);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+.send p {
+  font-family: var(--display);
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: none;
+}
+
+/* The boundary. Two facing columns divided by a single hairline: the whole
+   argument of the page is that these two lists stay separate. */
+.ledger {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 44px;
+  margin-top: 30px;
+  border-top: 1px solid var(--ink);
+}
+.ledger-col + .ledger-col {
+  border-left: 1px solid var(--rule);
+  padding-left: 44px;
+  margin-left: -22px;
+}
+.ledger h3 {
+  font-size: 15px;
+  font-weight: 600;
+  padding-block: 18px 4px;
+}
+.ledger ul { list-style: none; margin: 0; padding: 0; }
+.ledger li {
+  font-family: var(--display);
+  font-size: 15.5px;
+  line-height: 1.4;
+  padding-block: 13px;
+  border-top: 1px solid var(--rule);
+  max-width: none;
+}
+.ledger li:first-child { border-top: 0; }
+.ledger-col-excluded li { color: var(--ink); }
+.ledger-col-included li { color: var(--ink-2); }
+
+/* A real sequence, so it is numbered. */
+.sequence { list-style: none; margin: 26px 0 0; padding: 0; }
+.sequence li {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 20px;
+  padding-block: 24px;
+  border-top: 1px solid var(--rule);
+  max-width: none;
+}
+.sequence li:last-child { border-bottom: 1px solid var(--rule); }
+.step-n {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  padding-top: 3px;
+}
+.sequence h3 { font-size: 17px; margin-bottom: 7px; }
+.sequence p { color: var(--ink-2); font-size: 17px; max-width: var(--measure); }
+
+@media (max-width: 900px) {
+  .route { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (max-width: 620px) {
+  .ledger { grid-template-columns: 1fr; gap: 0; }
+  .ledger-col + .ledger-col {
+    border-left: 0;
+    border-top: 1px solid var(--ink);
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 26px;
+  }
+  .sequence li { grid-template-columns: 40px minmax(0, 1fr); gap: 14px; }
+}

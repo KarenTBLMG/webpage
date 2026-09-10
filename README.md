@@ -1,4 +1,4 @@
-# TensorBlack — Company page
+# TensorBlack — website
 
 The redesigned About page, rebuilt as **Company**. Static, self-contained, no
 build step and no dependencies beyond two web fonts. Open `index.html`, or
@@ -12,8 +12,9 @@ python3 -m http.server 8000
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Markup and all page copy |
-| `styles.css` | Palette, typography and layout |
+| `index.html` | Company page — markup and copy |
+| `working-with.html` | Working with TensorBlack — markup and copy |
+| `styles.css` | Palette, typography and layout, shared by both pages |
 | `main.js` | The coverage filter, and nothing else |
 
 ## Source
@@ -61,3 +62,57 @@ markup:
   `mailto:` because the inbox address was not specified.
 - If a defined brand palette and logo files exist, swapping them in means
   editing the `:root` block only.
+
+## Working with TensorBlack
+
+A second page, in the same design system. It expands section 6 of the Company
+page — which is one statement, one action, one inbox — into the page the
+people who want to engage actually need.
+
+**The copy on this page is not from the source document.** Everything on the
+Company page came from Karen's draft. This page had no copy, so it is written
+here and every line needs review. Three sections carry more risk than the
+rest:
+
+- **"What commercial support does and does not include"** restates the
+  independence policy as a commercial boundary. The exclusions are taken from
+  the source document's own sentence — sponsors do not select topics, review
+  content prior to publication, or approve faculty — but the inclusions are
+  drafted here and describe what TensorBlack sells. Andrea and Jordan should
+  confirm both columns.
+- **"What happens after you write"** describes internal routing. It commits
+  to no response time on purpose; adding one is a decision with an owner.
+- **"Sponsorship starts with the calendar"** asserts how the first commercial
+  conversation goes. Confirm with whoever runs sponsorship.
+
+No figures, prices, tiers or packages appear anywhere on the page, and none
+should be added without a decision about what is publishable.
+
+### Structure
+
+Six sections, matching the Company page's rhythm:
+
+1. **Hero** — the page's thesis, that there are four routes in and one line
+   none of them cross.
+2. **Four routes, one inbox** — sponsorship, faculty nomination, speaking,
+   press. Each row carries a "What to send" line, which is what makes a single
+   shared inbox workable rather than a black hole.
+3. **The line** — two facing columns divided by a hairline. The page's whole
+   argument is that these two lists stay separate.
+4. **Disclosure** — the governance statements, on the field ground, matching
+   how the Company page treats the same material.
+5. **What happens next** — numbered, because it is a real sequence. Nothing
+   else on either page is numbered.
+6. **Get in touch** — the closing statement from the source document.
+
+### Open decisions
+
+- **This page has no home in the information architecture.** The source
+  document specifies the nav as content, programs, events, faculty, company,
+  and the footer Company column as about, news, contact, terms, privacy.
+  Neither includes this page, so nothing links to it yet. The natural fix is
+  to point the Company page's "Get in touch" button here instead of at
+  `/contact`. That has not been done, because it would change a page already
+  reviewed.
+- The masthead marks **Company** as the current item, on the assumption this
+  page sits beneath it. If it is meant to be top-level, that changes.
