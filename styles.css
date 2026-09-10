@@ -284,6 +284,7 @@ a.link:hover { text-decoration-color: var(--ink); }
    -------------------------------------------------------------------------- */
 
 .filters {
+  margin-top: 22px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -567,4 +568,83 @@ a.link:hover { text-decoration-color: var(--ink); }
     margin-top: 26px;
   }
   .sequence li { grid-template-columns: 40px minmax(0, 1fr); gap: 14px; }
+}
+
+/* ==========================================================================
+   Faculty
+   ========================================================================== */
+
+.roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+  gap: 34px 26px;
+  margin-top: 24px;
+}
+
+.person { min-width: 0; }
+.person.is-out { display: none; }
+
+/* Advisor feedback was that faculty images are small and do not convey
+   expertise, so the portrait leads the card at a full 4:5. */
+.portrait {
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  background: var(--field);
+  border: 1px solid var(--rule);
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+.portrait span {
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.person h3 {
+  font-size: 16.5px;
+  margin-bottom: 5px;
+}
+/* Renamed off .area deliberately: that class is the coverage-board tile. */
+.person .expertise {
+  font-family: var(--display);
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: none;
+}
+.person .inst {
+  font-family: var(--display);
+  font-size: 13.5px;
+  color: var(--ink-2);
+  margin-top: 3px;
+  max-width: none;
+}
+
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 11px;
+  padding: 0;
+  list-style: none;
+}
+.roles li {
+  font-family: var(--display);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 3px 7px;
+  max-width: none;
+}
+
+@media (max-width: 620px) {
+  .roster { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+}
+@media (max-width: 360px) {
+  .roster { grid-template-columns: 1fr; }
 }

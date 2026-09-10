@@ -14,8 +14,9 @@ python3 -m http.server 8000
 | --- | --- |
 | `index.html` | Company page — markup and copy |
 | `working-with.html` | Working with TensorBlack — markup and copy |
+| `faculty.html` | Faculty — markup and roster |
 | `styles.css` | Palette, typography and layout, shared by both pages |
-| `main.js` | The coverage filter, and nothing else |
+| `main.js` | Two filters: the coverage board and the faculty roster |
 
 ## Source
 
@@ -116,3 +117,58 @@ Six sections, matching the Company page's rhythm:
   reviewed.
 - The masthead marks **Company** as the current item, on the assumption this
   page sits beneath it. If it is meant to be top-level, that changes.
+
+## Faculty
+
+The page the Company page's coverage board points at: "Each area maps to
+named faculty on the faculty page."
+
+**No roster exists yet.** Section 6 of the source document records that the
+roster and bio folder links did not come through. So all 24 cards are
+placeholders — "Faculty name", "Institution", and a portrait block — in the
+same spirit as the `000` figures. No names, institutions or biographies have
+been invented. What is real is the taxonomy: each card carries a genuine
+coverage area from the source document, so the filter demonstrably works and
+the mapping to the board can be checked.
+
+### The representation requirement is built into the markup
+
+Section 5 of the document requires that the visible default set, before any
+filtering or scrolling, is a proper male/female mix, and states plainly that
+sorting alphabetically or by date added will not reliably produce one. It
+also says the requirement "needs to be designed in rather than fixed at
+content-entry time."
+
+So the roster order is **stored by hand and rendered as written**. It rotates
+through the four coverage areas, which is why the first screen spans the
+bench instead of showing whoever sorts first. A comment above the roster in
+`faculty.html` says this, and says what must not be done to it:
+
+> If a CMS ever renders this list, it must preserve a hand-set order field.
+> Do not replace it with ORDER BY surname or ORDER BY created.
+
+That is the whole mechanism. It only survives if whoever wires this to a
+content system respects it, which is why it is written in the markup rather
+than left in a document.
+
+### Why this filter hides and the coverage board dims
+
+They look identical and behave differently, on purpose. The board argues
+breadth, so dimming keeps the whole map visible — that is what the document
+specifies. The roster is how a visitor reaches a particular person, so
+narrowing it has to actually narrow it.
+
+### Open items
+
+- The roster is a placeholder. Real faculty, portraits, and per-person
+  disclosure links are needed before launch.
+- Portraits are 4:5 and lead the card, answering the advisor note that
+  faculty images are small and do not convey expertise. Confirm the crop
+  before headshots are commissioned.
+- The role chips (hosts, teaches, speaks, advises) come from the source
+  document's description of faculty. Confirm these are the right four.
+- **Placement.** This page is built as top-level `/faculty`, which is where
+  the nav and the Company page's coverage board both already point, and
+  which matches the document's information architecture. It was requested as
+  a subpage under Company. Moving it there means changing which nav item
+  carries `aria-current` and adding a breadcrumb.

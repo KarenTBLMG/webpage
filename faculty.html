@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faculty — TensorBlack</title>
+<meta name="description" content="A standing bench of oncology clinicians, administrators, and policy specialists who host, teach, speak, and advise across everything TensorBlack produces.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Faculty — TensorBlack">
+<meta property="og:description" content="Faculty are the through-line, not a credits list.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><rect x='6' y='14' width='20' height='4' fill='%23E8A317'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="wordmark" href="/">TensorBlack</a>
+    <nav aria-label="Primary">
+      <ul class="nav">
+        <li><a href="/content">Content</a></li>
+        <li><a href="/programs">Programs</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/faculty" aria-current="page">Faculty</a></li>
+        <li><a href="/company">Company</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1 - Hero ------------------------------------------------------------ -->
+  <section class="band">
+    <div class="wrap hero-inner">
+      <h1>Faculty are the through-line.</h1>
+      <p class="standfirst">
+        A standing bench of oncology clinicians, administrators, and policy
+        specialists who host, teach, speak, and advise across everything we
+        produce.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2 - The bench -------------------------------------------------------- -->
+  <section class="band" id="the-bench" aria-labelledby="bench-h">
+    <div class="wrap band-inner">
+      <p class="rail">The bench</p>
+      <div class="col">
+        <h2 class="h-section" id="bench-h">Who teaches, hosts, speaks, and advises</h2>
+        <p>
+          Filter by the same four areas the coverage board uses. Everyone on
+          the bench is reachable through the filter.
+        </p>
+
+        <fieldset class="filters" id="faculty-filters">
+          <legend>Filter faculty by area</legend>
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All faculty</button>
+          <button class="filter" type="button" data-filter="clinical" aria-pressed="false">Clinical</button>
+          <button class="filter" type="button" data-filter="operations" aria-pressed="false">Operations</button>
+          <button class="filter" type="button" data-filter="policy" aria-pressed="false">Policy and regulation</button>
+          <button class="filter" type="button" data-filter="data" aria-pressed="false">Data and technology</button>
+        </fieldset>
+
+        <!--
+          CURATED ORDER - DO NOT SORT.
+
+          The source document requires that the visible default set, before
+          any filtering or scrolling, is a proper male/female mix, and states
+          that an alphabetical or date-added sort will not reliably produce
+          one. So this order is stored by hand and rendered as written. It
+          rotates through the four areas, which is why the first screen spans
+          the bench rather than showing whoever sorts first.
+
+          If a CMS ever renders this list, it must preserve a hand-set order
+          field. Do not replace it with ORDER BY surname or ORDER BY created.
+        -->
+        <div class="roster" id="roster">
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Medical oncology</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Hosts</li><li>Teaches</li></ul>
+          </article>
+
+          <article class="person" data-group="operations">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Infusion operations</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Speaks</li></ul>
+          </article>
+
+          <article class="person" data-group="policy">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Government affairs</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Teaches</li><li>Advises</li></ul>
+          </article>
+
+          <article class="person" data-group="data">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Clinical informatics</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Hosts</li><li>Speaks</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Radiation oncology</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Advises</li></ul>
+          </article>
+
+          <article class="person" data-group="operations">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Oncology pharmacy</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Speaks</li><li>Teaches</li></ul>
+          </article>
+
+          <article class="person" data-group="policy">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Regulatory strategy</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Hosts</li><li>Advises</li></ul>
+          </article>
+
+          <article class="person" data-group="data">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Precision medicine and genomics</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Teaches</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Surgical oncology</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Hosts</li><li>Teaches</li></ul>
+          </article>
+
+          <article class="person" data-group="operations">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Practice administration</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Speaks</li></ul>
+          </article>
+
+          <article class="person" data-group="policy">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Payer and value-based care</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Teaches</li><li>Advises</li></ul>
+          </article>
+
+          <article class="person" data-group="data">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Real-world data</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Hosts</li><li>Speaks</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Hematology</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Advises</li></ul>
+          </article>
+
+          <article class="person" data-group="operations">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Revenue cycle</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Speaks</li><li>Teaches</li></ul>
+          </article>
+
+          <article class="person" data-group="policy">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Health equity and access</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Hosts</li><li>Advises</li></ul>
+          </article>
+
+          <article class="person" data-group="data">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">AI governance and validation</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Teaches</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Breast</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Hosts</li><li>Teaches</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Gastrointestinal</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Speaks</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Genitourinary</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Teaches</li><li>Advises</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Thoracic</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Hosts</li><li>Speaks</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Gynecologic</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Advises</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Neuro-oncology</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Speaks</li><li>Teaches</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Pathology</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Hosts</li><li>Advises</li></ul>
+          </article>
+
+          <article class="person" data-group="clinical">
+            <div class="portrait" aria-hidden="true"><span>Portrait</span></div>
+            <h3>Faculty name</h3>
+            <p class="expertise">Palliative and supportive care</p>
+            <p class="inst">Institution</p>
+            <ul class="roles"><li>Teaches</li></ul>
+          </article>
+        </div>
+
+        <p class="board-status" id="roster-status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 - Disclosure ------------------------------------------------------- -->
+  <section class="band band-field" id="disclosure" aria-labelledby="disc-h">
+    <div class="wrap band-inner">
+      <p class="rail">Disclosure</p>
+      <div class="col prose">
+        <h2 class="h-section" id="disc-h">What faculty disclose</h2>
+        <p>
+          Faculty disclose financial relationships relevant to the subject
+          matter, and those disclosures are published alongside the content.
+        </p>
+        <p>
+          Sponsors and commercial partners do not select topics, review content
+          prior to publication, or approve faculty.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 - Nomination ------------------------------------------------------- -->
+  <section class="band" id="nominate" aria-labelledby="nom-h">
+    <div class="wrap band-inner">
+      <p class="rail">Nominate</p>
+      <div class="col prose">
+        <h2 class="h-section" id="nom-h">Nominating faculty</h2>
+        <p>
+          Faculty are nominated by colleagues and by themselves. We are looking
+          for people who carry the decision themselves, not for a credits list.
+        </p>
+        <a class="btn" href="working-with.html">Nominate someone</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <p class="footer-descriptor">
+        A physician-led media and education company built for cancer care.
+      </p>
+
+      <nav aria-labelledby="f-explore">
+        <h2 id="f-explore">Explore</h2>
+        <ul>
+          <li><a href="/content">Content</a></li>
+          <li><a href="/programs">Programs</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/faculty">Faculty</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="f-company">
+        <h2 id="f-company">Company</h2>
+        <ul>
+          <li><a href="/company">About</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/terms">Terms of use</a></li>
+          <li><a href="/privacy">Privacy policy</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="fine-print">
+      TensorBlack produces independent editorial and educational content for
+      oncology professionals. Sponsored content is labeled. Nothing published
+      by TensorBlack is medical advice or a recommendation to purchase any
+      product or service.
+    </p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>

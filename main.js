@@ -54,3 +54,51 @@
   // on load: the text is set, the live region only speaks on later changes.
   status.textContent = "Showing all " + areas.length + " coverage areas.";
 })();
+
+/* Faculty roster filter.
+ *
+ * This one HIDES rather than dims, which is the opposite of the coverage
+ * board and deliberate. The board argues breadth, so dimming keeps the whole
+ * map visible. The roster is how a visitor reaches a particular person, so
+ * narrowing it has to actually narrow it.
+ *
+ * The unfiltered order is curated by hand in the markup and is never sorted
+ * here. See the comment above the roster in faculty.html.
+ */
+(function () {
+  "use strict";
+
+  var filters = document.getElementById("faculty-filters");
+  var roster = document.getElementById("roster");
+  var status = document.getElementById("roster-status");
+  if (!filters || !roster || !status) return;
+
+  var buttons = filters.querySelectorAll(".filter");
+  var people = roster.querySelectorAll(".person");
+
+  function apply(group, button) {
+    var shown = 0;
+
+    Array.prototype.forEach.call(people, function (person) {
+      var match = group === "all" || person.dataset.group === group;
+      person.classList.toggle("is-out", !match);
+      if (match) shown++;
+    });
+
+    Array.prototype.forEach.call(buttons, function (b) {
+      b.setAttribute("aria-pressed", String(b === button));
+    });
+
+    status.textContent = group === "all"
+      ? "Showing all " + people.length + " faculty."
+      : "Showing " + shown + " of " + people.length + " faculty: " +
+        button.textContent.trim() + ".";
+  }
+
+  filters.addEventListener("click", function (e) {
+    var button = e.target.closest(".filter");
+    if (button) apply(button.dataset.filter, button);
+  });
+
+  status.textContent = "Showing all " + people.length + " faculty.";
+})();
