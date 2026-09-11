@@ -172,3 +172,68 @@ narrowing it has to actually narrow it.
   which matches the document's information architecture. It was requested as
   a subpage under Company. Moving it there means changing which nav item
   carries `aria-current` and adding a breadcrumb.
+
+## Review round two
+
+Changes applied from Karen's feedback of 11 September 2026. Items marked
+**open** are decisions that were raised but not settled, so the page carries
+one option and can be switched.
+
+### Applied
+
+- **"The GPS for oncology" is off the Company page.** It was the hero
+  headline; it is now nowhere on the site. The replacement is "Independent
+  answers, in public.", built from the approved line "We answer those
+  questions in public." The standfirst still opens with "Guiding", so the
+  wayfinding idea the amber signal echoes survives without the dated
+  metaphor. **Open:** whether the phrase is retired outright or reused
+  somewhere smaller.
+- **"the same questions" is plural.** Two questions follow the colon. The
+  next paragraph had to change with it, from "that question" to "those
+  questions", or the copy disagreed with itself.
+- **"faculty bench" is gone**, on both the Company and Faculty pages. It is
+  now "our faculty coalition of national oncology leaders". The Faculty page
+  rail label, section id and meta description changed with it.
+- **Executive team section added** to the Company page, with a small link at
+  the end of "Who we are" matching the block links below it. Names only, no
+  portraits: the advisor note that the page read like a team page is what the
+  redesign fixed, so this stays a reference list.
+- **Podcast is "AI and Healthcare"**, the official name, not "AI &
+  Healthcare".
+- **CEO Round Table** no longer says executives "compare what they are
+  actually deploying". They "share what they are deploying and what they are
+  learning from it". Changed on the Working with page too, which carried the
+  same claim.
+- **Loran Media Group** is now credited with conference and event
+  operations only. The media production half is dropped.
+- **Faculty nomination is no longer an open invitation.** The Faculty page's
+  nomination section is replaced by "Faculty are invited, not enrolled",
+  which states that membership is by invitation, that faculty record media,
+  lead CEO Round Table sessions, teach Academy cohorts and speak at
+  conferences, and that applications are not accepted. The Working with
+  page's route is reframed the same way: a colleague's recommendation, never
+  self-nomination.
+- **Credentials follow the name** on faculty cards and executive rows,
+  formatted as "Doug Flora MD, LSSB".
+
+### Open
+
+- **"Physician-led" is unchanged**, pending Ab and others. It appears in the
+  "Who we are" heading, the footer descriptor, and the Company page meta
+  description. If it goes, a replacement that keeps the substance without the
+  label is "A media and education company built for cancer care, led by the
+  clinicians and operators inside it."
+- **The word "nomination" is kept** because it is in the approved closing
+  line, "For sponsorship, faculty nominations, speaking, and press." Only the
+  concept changed. If the word itself should go, it appears in four places on
+  the Working with page.
+- **Executive team details are placeholders.** Doug Flora's credentials come
+  from Karen's example and Karen's own title from the source document.
+  Surnames and credentials are needed for Lekan and Sanjay, titles for
+  everyone but Karen, and the fifth person is an unfilled slot.
+- **The male/female mix requirement binds on the executive team section.**
+  Section 5 of the source document requires a proper mix anywhere more than
+  two people appear together. Five names appear here.
+- **Sean or CJ must review** the compliance and disclosure language, and scan
+  all site copy for issues, before launch. This replaces the earlier note
+  naming Andrea and Jordan for the "How we work" section.
