@@ -287,3 +287,41 @@ colleague's recommendation, and its closing line still reads "For
 sponsorship, faculty nominations, speaking, and press." Removing the route
 takes that page from four routes to three, which the hero and section heading
 both state.
+
+## Review round four — Explore renamed and the blocks resplit
+
+Content became **AI Academy** and Programs became **Perspectives**, in the
+primary nav and the footer Explore column on all three pages. Destinations
+follow: `/academy` and `/perspectives`.
+
+The Company page's four capability blocks were resplit to match, dividing
+editorial from education:
+
+| Block | Holds | Link |
+| --- | --- | --- |
+| AI Academy | Course library, cohorts | `/academy` |
+| Perspectives | Podcast, video series, newsletter | `/perspectives` |
+| Events | SHIFT and the CEO Round Table | `/events` |
+| Faculty | Unchanged | `/faculty` |
+
+The CEO Round Table moved into Events, which now covers both convenings, and
+carries the Round Table's two figures alongside SHIFT's.
+
+The section heading changed from "Owned content, programs, events, and the
+people behind them" to "The Academy, Perspectives, events, and the people
+behind them".
+
+### Two things to confirm
+
+- **Block order follows the nav order requested** — AI Academy first,
+  Perspectives second. The option preview showed Perspectives first. Flipping
+  both is a two-line change.
+- **The AI Academy figures are new.** "Courses in the library" and "Teams
+  through the Academy" are not in the source document's figure list, which
+  covers episodes, subscribers, Round Table membership, institutions, SHIFT
+  attendees and speakers, faculty headcount and specialties. They are
+  placeholders like the rest and can be dropped without disturbing the row.
+
+A layout bug came with the resplit and is fixed: the figures column used a
+non-wrapping row below 900px, which was fine for two figures and overflowed
+the page by 93px once Events carried four. It now wraps.

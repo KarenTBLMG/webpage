@@ -438,13 +438,13 @@ a.link:hover { text-decoration-color: var(--ink); }
   .rail { padding-top: 0; }
   .rail::before { margin-bottom: 10px; }
   .block { grid-template-columns: 1fr; gap: 22px; }
-  .figures { grid-auto-flow: column; grid-auto-columns: max-content; gap: 36px; }
+  .figures { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 22px 32px; }
 }
 
 @media (max-width: 620px) {
   body { font-size: 17px; }
   .footer-cols { grid-template-columns: 1fr; }
-  .figures { grid-auto-flow: row; grid-auto-columns: auto; gap: 16px; }
+  .figures { grid-template-columns: 1fr; gap: 16px; }
   .board { grid-template-columns: 1fr 1fr; }
 }
 
