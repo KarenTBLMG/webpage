@@ -623,24 +623,6 @@ a.link:hover { text-decoration-color: var(--ink); }
   max-width: none;
 }
 
-.roles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 11px;
-  padding: 0;
-  list-style: none;
-}
-.roles li {
-  font-family: var(--display);
-  font-size: 10.5px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  border: 1px solid var(--rule);
-  padding: 3px 7px;
-  max-width: none;
-}
 
 @media (max-width: 620px) {
   .roster { grid-template-columns: 1fr 1fr; gap: 28px 18px; }

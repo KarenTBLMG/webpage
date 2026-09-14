@@ -237,3 +237,42 @@ one option and can be switched.
 - **Sean or CJ must review** the compliance and disclosure language, and scan
   all site copy for issues, before launch. This replaces the earlier note
   naming Andrea and Jordan for the "How we work" section.
+
+## Review round three — faculty page
+
+Nominations are gone from the faculty page entirely, and the page has been
+scrubbed of anything that read as a speakers bureau.
+
+- **The "Faculty are invited, not enrolled" section is deleted.** Reframing
+  nomination was not enough; the concept is off the page. The page now closes
+  on the disclosure statement, which is the institutional close rather than a
+  call to join.
+- **The role chips are gone.** Every card carried "Hosts / Teaches / Speaks /
+  Advises", which is an availability menu attached to a face — the single
+  most bureau-like element on the page. Cards now read portrait, name and
+  credentials, area of expertise, institution: an editorial board, not a
+  roster for hire. The unused `.roles` styling was removed with them.
+- **"Who hosts, teaches, speaks, and leads sessions"** became "National
+  oncology leaders, by area of expertise".
+- **The standfirst** no longer lists services. Faculty "shape what we
+  publish, teach, and convene", which uses the source document's own three
+  verbs for the company.
+- **"Everyone in the coalition is reachable through the filter"** is gone;
+  "reachable" read like booking. The intro now leads with authority: faculty
+  set the direction of what is published and lead the programs.
+
+Three sections remain: hero, the coalition, disclosure.
+
+### Still carrying the old framing elsewhere
+
+Two places outside the faculty page were left alone because they are the
+source document's own approved copy, and changing them is a decision rather
+than a fix:
+
+- **The Company page's faculty block** still says faculty "host, teach,
+  speak, and advise across everything above." That is the verb list this
+  round removed from the faculty page.
+- **The Working with page** still has a faculty nomination route, now framed
+  as a colleague's recommendation, and its closing line still reads "For
+  sponsorship, faculty nominations, speaking, and press." Removing the route
+  takes the page from four routes to three and contradicts that line.
