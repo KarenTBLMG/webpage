@@ -263,16 +263,27 @@ scrubbed of anything that read as a speakers bureau.
 
 Three sections remain: hero, the coalition, disclosure.
 
-### Still carrying the old framing elsewhere
+### Company page brought into line
 
-Two places outside the faculty page were left alone because they are the
-source document's own approved copy, and changing them is a decision rather
-than a fix:
+Both places on the Company page that carried the old framing were changed to
+match. Each edits approved source-document copy, so each is listed here to be
+easy to restore:
 
-- **The Company page's faculty block** still says faculty "host, teach,
-  speak, and advise across everything above." That is the verb list this
-  round removed from the faculty page.
-- **The Working with page** still has a faculty nomination route, now framed
-  as a colleague's recommendation, and its closing line still reads "For
-  sponsorship, faculty nominations, speaking, and press." Removing the route
-  takes the page from four routes to three and contradicts that line.
+- **The faculty block** said faculty "host, teach, speak, and advise across
+  everything above." It now says they "set the direction of everything
+  above", mirroring the faculty page's own line and keeping the tie back to
+  the three blocks preceding it.
+- **The closing line** said "For sponsorship, faculty nominations, speaking,
+  and press, one inbox reaches the team." It now reads "For sponsorship,
+  speaking, and press, one inbox reaches the team." The faculty page no
+  longer offers a nomination route, so the Company page no longer advertises
+  one. "Speaking" is kept because it refers to conference programming rather
+  than faculty availability.
+
+### Still open: the Working with page
+
+It remains the only page offering a faculty nomination route, now framed as a
+colleague's recommendation, and its closing line still reads "For
+sponsorship, faculty nominations, speaking, and press." Removing the route
+takes that page from four routes to three, which the hero and section heading
+both state.
