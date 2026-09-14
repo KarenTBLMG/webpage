@@ -229,8 +229,11 @@ one option and can be switched.
   the Working with page.
 - **Executive team details are placeholders.** Doug Flora's credentials come
   from Karen's example and Karen's own title from the source document.
-  Surnames and credentials are needed for Lekan and Sanjay, titles for
-  everyone but Karen, and the fifth person is an unfilled slot.
+  Surnames and credentials are needed for Lekan and Sanjay, credentials for
+  Andrea Flora, titles for everyone but Karen, and one unfilled slot remains.
+  That slot is the fifth person from the original list of "Doug, Lekan,
+  Sanjay, me and you". If Andrea Flora is that person, delete the "Name"
+  row.
 - **The male/female mix requirement binds on the executive team section.**
   Section 5 of the source document requires a proper mix anywhere more than
   two people appear together. Five names appear here.
