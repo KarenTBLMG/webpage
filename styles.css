@@ -499,38 +499,6 @@ a.link:hover { text-decoration-color: var(--ink); }
   max-width: none;
 }
 
-/* The boundary. Two facing columns divided by a single hairline: the whole
-   argument of the page is that these two lists stay separate. */
-.ledger {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 44px;
-  margin-top: 30px;
-  border-top: 1px solid var(--ink);
-}
-.ledger-col + .ledger-col {
-  border-left: 1px solid var(--rule);
-  padding-left: 44px;
-  margin-left: -22px;
-}
-.ledger h3 {
-  font-size: 15px;
-  font-weight: 600;
-  padding-block: 18px 4px;
-}
-.ledger ul { list-style: none; margin: 0; padding: 0; }
-.ledger li {
-  font-family: var(--display);
-  font-size: 15.5px;
-  line-height: 1.4;
-  padding-block: 13px;
-  border-top: 1px solid var(--rule);
-  max-width: none;
-}
-.ledger li:first-child { border-top: 0; }
-.ledger-col-excluded li { color: var(--ink); }
-.ledger-col-included li { color: var(--ink-2); }
-
 /* A real sequence, so it is numbered. */
 .sequence { list-style: none; margin: 26px 0 0; padding: 0; }
 .sequence li {
@@ -559,14 +527,6 @@ a.link:hover { text-decoration-color: var(--ink); }
 }
 
 @media (max-width: 620px) {
-  .ledger { grid-template-columns: 1fr; gap: 0; }
-  .ledger-col + .ledger-col {
-    border-left: 0;
-    border-top: 1px solid var(--ink);
-    padding-left: 0;
-    margin-left: 0;
-    margin-top: 26px;
-  }
   .sequence li { grid-template-columns: 40px minmax(0, 1fr); gap: 14px; }
 }
 
@@ -660,4 +620,34 @@ a.link:hover { text-decoration-color: var(--ink); }
 
 @media (max-width: 620px) {
   .execs li { grid-template-columns: 1fr; gap: 3px; }
+}
+
+/* Reach — the audience figures on the Working with page. Same figure
+   treatment as the capability blocks, laid out as a band. */
+.reach {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px 32px;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.reach div {
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.reach span {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--display);
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  max-width: none;
 }

@@ -283,13 +283,10 @@ easy to restore:
   one. "Speaking" is kept because it refers to conference programming rather
   than faculty availability.
 
-### Still open: the Working with page
+### The Working with page: resolved in round five
 
-It remains the only page offering a faculty nomination route, now framed as a
-colleague's recommendation, and its closing line still reads "For
-sponsorship, faculty nominations, speaking, and press." Removing the route
-takes that page from four routes to three, which the hero and section heading
-both state.
+Nomination is gone from that page too, and the page was rewritten in a
+marketing register. See below.
 
 ## Review round four — Explore renamed and the blocks resplit
 
@@ -328,3 +325,50 @@ behind them".
 A layout bug came with the resplit and is fixed: the figures column used a
 non-wrapping row below 900px, which was fine for two figures and overflowed
 the page by 93px once Events carried four. It now wraps.
+
+## Review round five — Working with TensorBlack, rewritten as marketing
+
+Feedback was that the page read as conservative, with too much about what
+TensorBlack cannot do and too much on editorial control. Caution now belongs
+in discussion and contracting, not on the page.
+
+### What came out
+
+- **The whole "What commercial support does and does not include" section.**
+  Two facing columns, half of them prohibitions, placed before the page ever
+  said what a sponsor gets. Deleted, along with its `.ledger` styling.
+- **"a line that commercial support does not cross"** from the hero
+  standfirst, the meta description, and the social description.
+- **"We are not a consultancy and we do not resell software. If what you need
+  is implementation work, we are the wrong partner, and we will say so
+  early."** The most off-putting sentence on the page.
+- **"We do not accept applications."** Nomination language is now gone from
+  this page as well, which closes the item left open in round three. The
+  route is now "Faculty", framed as an introduction rather than an
+  application.
+
+### What went in
+
+- **A reach section, placed second**, before any route: the audience in plain
+  terms, then six figures — episodes, subscribers, SHIFT attendees, Round
+  Table executives, institutions, faculty. A sponsor's first question is who
+  they are reaching, so the page answers it first.
+- **A new hero**: "Reach the room where oncology decides."
+- **Positive framing on every route.** Sponsorship now says we will walk you
+  through the production calendar and show you where your category fits,
+  which is the same fact the old page stated as a restriction.
+
+### What stayed, deliberately
+
+One short section, "Independence is what makes this audience worth reaching",
+keeps three facts: content is developed by faculty and staff, sponsored
+placements are labeled, and faculty disclose relevant financial
+relationships. It is phrased as a benefit to the sponsor rather than a
+limit on them, and it links to the Company page's "How we work" for the full
+statement, which is unchanged.
+
+**This is the "compliantly" half of the instruction.** Labeling sponsored
+placements is a disclosure obligation, not a stylistic choice, and removing
+it from the page that sells sponsorship would be the one edit in this round
+that carries real risk. If Sean or CJ want it worded differently, that is a
+wording question rather than a question of whether it appears.
