@@ -651,3 +651,16 @@ a.link:hover { text-decoration-color: var(--ink); }
   color: var(--ink-2);
   max-width: none;
 }
+
+/* Topics — hairline rows carrying a heading and a paragraph, with no right
+   column. Used for the Round Table's three areas of guidance. */
+.topics {
+  border-top: 1px solid var(--rule);
+  margin-top: 8px;
+}
+.topics > div {
+  padding-block: 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.topics h3 { font-size: 19px; margin-bottom: 9px; }
+.topics p { color: var(--ink-2); font-size: 17px; }

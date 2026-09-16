@@ -15,6 +15,7 @@ python3 -m http.server 8000
 | `index.html` | Company page — markup and copy |
 | `working-with.html` | Working with TensorBlack — markup and copy |
 | `faculty.html` | Faculty — markup and roster |
+| `ceo-round-table.html` | CEO Round Table — markup and copy |
 | `styles.css` | Palette, typography and layout, shared by both pages |
 | `main.js` | Two filters: the coverage board and the faculty roster |
 
@@ -441,3 +442,61 @@ appear on the Company page's Events block and in the Working with page's
 reach band. If the Round Table's audience is AI and technology companies
 receiving guidance, a figure like "companies advised" may describe it better.
 Both are placeholders, so neither is wrong yet.
+
+## Review round eight — disclosure out, the Round Table given a home
+
+### Independence and disclosure removed from the Working with page
+
+That section is deleted. The page is four sections: hero, reach, ways to
+partner, get in touch.
+
+**Two related things were kept, and should be killed explicitly if they are
+also meant to go.** The Company page's "How we work" section still carries
+independence, disclosure and who pays for what — that section was praised in
+round two, with Sean or CJ to review it before launch. The Faculty page's
+"What faculty disclose" is also still there. Neither was named in this round's
+feedback, and both are about faculty integrity rather than commercial caution.
+The site-wide footer fine print is also unchanged.
+
+I flagged the sponsored-placement labeling as a disclosure obligation last
+round. That flag stands and was overruled for this page; it is recorded here
+rather than repeated.
+
+### The CEO Round Table is now its own page
+
+**Recommendation, acted on:** yes, it needs a page. It is the only thing on
+the site serving a different audience — AI and technology companies rather
+than oncology professionals — and it is an offering rather than a publication.
+As one sentence inside an Events block it was invisible and miscast.
+
+`ceo-round-table.html`, five sections:
+
+1. **Hero** — "Build for oncology with oncology in the room."
+2. **What it is** — a closed session; technology teams bring a product, a
+   roadmap or an open question, and oncology leaders respond directly. The
+   argument is timing: most teams hear this after launch, from a customer.
+3. **Policy, implementation, and positioning** — the three areas named in the
+   feedback, one hairline row each.
+4. **Who is in the room** — drawn from faculty, linking to the faculty page.
+5. **Get in touch.**
+
+It is discussed in three places now, which is the answer to "where do we need
+to discuss it":
+
+- **Its own page**, for depth.
+- **A fifth block on the Company page.** It was pulled out of Events, which
+  returns to SHIFT alone, and took the Round Table's two figures with it.
+  Events and the Round Table are both convenings but they are not the same
+  product, and one block cannot carry both.
+- **The "Expert guidance and insight" route** on the Working with page, which
+  now links through.
+
+### Open
+
+- **All copy on the Round Table page is drafted here**, not supplied. The
+  three areas are expanded from the words "policies, implementation and
+  positioning"; everything else is written to fit. Every line needs review.
+- **The page has no home in the navigation**, like the Working with page. It
+  is reachable only from the Company page block and the Working with route.
+- **The Round Table figures may still be mislabeled** for the corrected
+  description, as noted last round.
