@@ -396,3 +396,48 @@ source document's "one closing statement, one action, one inbox". It now
 reads "If you are considering sponsorship, speaking at SHIFT, or covering our
 work, we would like to hear from you." The statement and the action remain;
 the inbox does not.
+
+## Review round seven — the Round Table corrected, faculty repositioned
+
+### The CEO Round Table was described wrongly
+
+Every version until now, including the source document, said it "brings
+cancer program executives together" to compare or share what they are
+deploying. That is not what it is. It gives AI and technology companies
+expert guidance and insight from oncology leaders as they shape and build new
+products.
+
+Corrected in both places it appeared:
+
+- **Company page, Events block:** it now brings AI and technology companies
+  together with oncology leaders for expert guidance while a product is still
+  being shaped.
+- **Working with page:** it is now a route of its own, "Expert guidance and
+  insight", placed second, above the inbound faculty route, because it is a
+  commercial offering rather than an enquiry.
+
+### The last speakers-bureau positioning is gone
+
+- **The "Speaking and program participation" route is deleted**, replaced by
+  the expert guidance route. It was the last piece of bureau framing on the
+  site, and an inbound "want to speak?" route also contradicted SHIFT being
+  invitation-only.
+- **"speaking" is gone from the Working with hero and meta description**, and
+  from the Company page's closing line, which invited "speaking at SHIFT" —
+  the thing SHIFT does by invitation. It now offers expert guidance instead.
+- **"the work that makes them worth hearing"** became "the questions their
+  work is answering". Hearing is booking; questions are thought leadership.
+- **The faculty route** now says faculty work "sets the direction of what we
+  publish and the guidance we give".
+- **The Faculty page** intro now names the guidance role: faculty set the
+  direction of what is published, lead the programs, and give the guidance
+  that reaches the teams building for oncology.
+
+### Two figures may now be mislabeled
+
+The Round Table's figures were written for the old description and are
+unchanged: "Executives in the Round Table" and "Institutions represented"
+appear on the Company page's Events block and in the Working with page's
+reach band. If the Round Table's audience is AI and technology companies
+receiving guidance, a figure like "companies advised" may describe it better.
+Both are placeholders, so neither is wrong yet.
