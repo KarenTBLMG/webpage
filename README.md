@@ -496,7 +496,26 @@ to discuss it":
 - **All copy on the Round Table page is drafted here**, not supplied. The
   three areas are expanded from the words "policies, implementation and
   positioning"; everything else is written to fit. Every line needs review.
-- **The page has no home in the navigation**, like the Working with page. It
-  is reachable only from the Company page block and the Working with route.
+- ~~The page has no home in the navigation~~ — resolved in round nine.
 - **The Round Table figures may still be mislabeled** for the corrected
   description, as noted last round.
+
+## Review round nine — CEO Round Table in the navigation
+
+Added to the primary nav and the footer Explore column on all four pages,
+placed after Events, since both are convenings and Faculty stays as the
+through-line before Company:
+
+> AI Academy · Perspectives · Events · CEO Round Table · Faculty · Company
+
+On its own page it now carries the current-page marker; Company no longer
+does.
+
+The masthead holds at every width. The nav is one row down to 540px and wraps
+to two below that, growing the masthead from 106px to 136px. That is the
+wrapping behaviour the design already relies on instead of a menu button, so
+no new breakpoint was needed.
+
+The Working with page is now the only page with no nav entry. It is reachable
+from the Company page's closing action and is arguably right as a deeper
+page, but it is worth a decision.
