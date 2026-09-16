@@ -372,3 +372,27 @@ placements is a disclosure obligation, not a stylistic choice, and removing
 it from the page that sells sponsorship would be the one edit in this round
 that carries real risk. If Sean or CJ want it worded differently, that is a
 wording question rather than a question of whether it appears.
+
+## Review round six — the "one inbox" idea removed
+
+It is gone from both pages that carried it.
+
+On **Working with TensorBlack**:
+
+- The hero standfirst ended "One inbox reaches the team." It now ends "Tell
+  us what you are planning and we will show you where it fits."
+- "Four ways in, one inbox" became "Four ways to work with us".
+- The closing section was headed "One inbox reaches the team". It is now
+  "Start a conversation", asking what you are planning and which audience you
+  want, and promising the calendar in return.
+- **The "What happens next" section is deleted.** Two of its three steps
+  existed only to explain the single inbox and the internal routing behind
+  it. The third, about starting with the production calendar, already appears
+  in the sponsorship route. Nothing was lost. The page is five sections.
+
+On the **Company page**, the closing line read "For sponsorship, speaking,
+and press, one inbox reaches the team" — the last surviving fragment of the
+source document's "one closing statement, one action, one inbox". It now
+reads "If you are considering sponsorship, speaking at SHIFT, or covering our
+work, we would like to hear from you." The statement and the action remain;
+the inbox does not.
