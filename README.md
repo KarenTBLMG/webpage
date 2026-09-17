@@ -13,7 +13,7 @@ python3 -m http.server 8000
 | File | Purpose |
 | --- | --- |
 | `index.html` | Company page — markup and copy |
-| `working-with.html` | Working with TensorBlack — markup and copy |
+| `events.html` | Events — SHIFT and sponsorship |
 | `faculty.html` | Faculty — markup and roster |
 | `ceo-round-table.html` | CEO Round Table — markup and copy |
 | `styles.css` | Palette, typography and layout, shared by both pages |
@@ -519,3 +519,45 @@ no new breakpoint was needed.
 The Working with page is now the only page with no nav entry. It is reachable
 from the Company page's closing action and is arguably right as a deeper
 page, but it is worth a decision.
+
+## Review round ten — Sanjay and Doug
+
+### 1. The standalone Working with page is deleted
+
+They read it as an advertisement. `working-with.html` is gone, and its
+content is folded into the pages that own each conversation:
+
+- **Sponsorship, and the reach figures** → the new Events page.
+- **Expert guidance** → already had the CEO Round Table page.
+- **The faculty introduction route** → dropped entirely. Faculty is
+  invitation-only, so an inbound route contradicted it. Nothing was lost that
+  earlier rounds had not already decided.
+- **Press** → the Company page's closing, which now routes each conversation
+  to where it lives.
+
+Nothing linked to the deleted page, so there are no broken links. Its
+published artifact is now superseded and should be ignored.
+
+### 2. Events page added
+
+`events.html`, five sections, and sponsorship contact lives here as asked:
+hero, the summit, who is in the room with the audience figures, sponsorship
+in three parts, and a sponsorship "get in touch". The nav's Events item now
+points at a real page.
+
+### 3. The Company page leads with the positioning
+
+The hero is now the sentence from leadership:
+
+> **The operating system for AI adoption in oncology.**
+> Where decisions are informed, where alignment happens, and where the future
+> of the field gets shaped — not just discussed.
+
+"Independent answers, in public" and the older "Guiding providers,
+innovators, and investors" standfirst are both retired.
+
+A claim that large needs operations under it immediately, so a new second
+section, "Informed, aligned, and shaped", ties each clause to something real:
+decisions informed by Perspectives and the AI Academy, alignment through
+SHIFT and the CEO Round Table, and the future shaped by faculty who are
+deciding it rather than commenting on it. The page is eight sections.
