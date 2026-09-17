@@ -228,13 +228,15 @@ one option and can be switched.
   line, "For sponsorship, faculty nominations, speaking, and press." Only the
   concept changed. If the word itself should go, it appears in four places on
   the Working with page.
-- **Executive team details are placeholders.** Doug Flora's credentials come
-  from Karen's example and Karen's own title from the source document.
-  Surnames and credentials are needed for Lekan and Sanjay, credentials for
-  Andrea Flora, titles for everyone but Karen, and one unfilled slot remains.
-  That slot is the fifth person from the original list of "Doug, Lekan,
-  Sanjay, me and you". If Andrea Flora is that person, delete the "Name"
-  row.
+- **Executive team, still outstanding.** Four titles are now set: Doug Flora
+  CEO, Sanjay CMO, Karen Fecenko-Tacka COO, Andrea Flora CFO. Still needed:
+  surnames and credentials for Lekan and Sanjay, credentials for Andrea
+  Flora, a title for Lekan, and the sixth row is an unnamed placeholder — the
+  fifth person from the original list of "Doug, Lekan, Sanjay, me and you",
+  who was never identified. Delete that row if the list is complete at five.
+- **Row order is unchanged** and is not by seniority: Doug, Lekan, Sanjay,
+  Karen, Andrea. Reordering would mean placing Lekan, whose role is not yet
+  known.
 - **The male/female mix requirement binds on the executive team section.**
   Section 5 of the source document requires a proper mix anywhere more than
   two people appear together. Five names appear here.
