@@ -14,6 +14,7 @@ python3 -m http.server 8000
 | --- | --- |
 | `index.html` | Company page — markup and copy |
 | `events.html` | Events — SHIFT and sponsorship |
+| `home.html` | Homepage concept mockup — separate design system |
 | `faculty.html` | Faculty — markup and roster |
 | `ceo-round-table.html` | CEO Round Table — markup and copy |
 | `styles.css` | Palette, typography and layout, shared by both pages |
@@ -632,3 +633,53 @@ Worth keeping regardless of which page it lands on:
   sampled.
 - **Standardize the light/dark rhythm** on a stated rule, and make eyebrow
   labels all-or-nothing.
+
+## Review round twelve — Doug's homepage notes applied
+
+The page Doug reviewed arrived: a concept mockup on its **own design system**,
+unrelated to the four pages above. Dark `#0A0A0B` ground, orange `#F45D01`,
+Nunito Sans and IBM Plex Mono, a canvas mosaic behind the hero, email
+capture, and a light panel for news and the Academy. It is now `home.html`.
+
+It keeps its own stylesheet. It does not use `styles.css`, and it should not
+be merged into that system without a decision, because the two are different
+brands on the page.
+
+### Applied
+
+| Doug's note | Change |
+| --- | --- |
+| Headline blames the reader | "faster than anyone can evaluate it" → **"faster than the evidence can keep up"** |
+| Subhead is generic | → **"What's proven, what's promising, and what can wait — vetted weekly by working oncologists."** |
+| "Subscribe" undersells | → **"Join the Network"** |
+| "Convening oncology" is awkward | → **"A clinician-led network — programs, events, and a faculty bench spanning the specialties, government affairs, regulation, and infusion."** |
+| Footer tagline is the strongest line and is buried | **"Driving smarter cancer care."** promoted above the headline, in mono caps at 13px rather than the footer's 10.5px |
+| Eyebrows inconsistent | All five major sections now carry one: **Read · Learn · Listen & watch · The company · Community** |
+| No low-commitment way to sample before the email ask | **"Not ready yet? Read this week's issue first →"** under the capture form, jumping to the news section |
+
+Two Round Table and SHIFT cards that were placeholder text now carry the
+agreed descriptions from this repo's own pages — including that the Round
+Table is guidance **to** AI and technology companies, which an earlier draft
+had backwards.
+
+### Open
+
+- **The light/dark rhythm was a question, not an instruction**, so it is
+  unchanged. The structure is actually two transitions, not five: dark hero →
+  light panel holding news and Academy → dark for everything after. Adding
+  eyebrows to the light sections gives both zones the same section grammar,
+  which should make the split read as intentional. If it still does not, the
+  rule to state is editorial and reference content on light, brand and
+  community on dark.
+- **"Vetted weekly"** is only true of OncoPulse. The live site says the
+  podcast ships every two weeks, and the previous author's notes flag that
+  "The Headlines" may not exist as a separate newsletter. Confirm the cadence
+  before this goes near a build.
+- **Doug's line about who TensorBlack works with** — "providers, founders,
+  marketers, and investors … ask us anything, and get an honest answer from a
+  practicing oncologist, whether you're a sponsor or a stranger" — is not
+  placed. It is strong, but Sanjay asked that partnering not be front and
+  centre, so it likely belongs on the partner or contact page rather than the
+  homepage.
+- The original mockup artifact is untouched, so Doug's comments still line up
+  with what he reviewed.

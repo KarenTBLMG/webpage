@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TensorBlack — Driving smarter cancer care</title>
+<meta name="description" content="What's proven, what's promising, and what can wait — vetted weekly by working oncologists.">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,800;0,6..12,900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#0A0A0B;
+    --ink-2:#141417;
+    --ink-3:#1C1C20;
+    --line:#2A2A30;
+    --line-soft:#212126;
+    --white:#FFFFFF;
+    --grey:#A5A0A0;
+    --grey-dim:#726E70;
+    --orange:#F45D01;
+    --orange-soft:#FF7A2E;
+    --blue:#1E1EE2;
+
+    /* light panel — cool off-white, biased toward the secondary brand blue */
+    --paper:#ECEDF1;
+    --paper-2:#FFFFFF;
+    --paper-line:#D7D9E0;
+    --paper-ink:#0E0E12;
+    --paper-grey:#5C5E68;
+
+    --sans:"Avenir Next","Avenir","Nunito Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --wrap:1200px;
+    --gut:clamp(20px,4vw,52px);
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--white);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:2px}
+  h1,h2,h3,h4,h5{margin:0;text-wrap:balance;font-weight:800;letter-spacing:-.022em;line-height:1.12}
+
+  .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+  .mono{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+
+  /* ---------- mockup control bar ---------- */
+  .mockbar{
+    position:sticky;top:0;z-index:90;
+    display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+    padding:9px var(--gut);
+    background:#000;border-bottom:1px solid var(--line);
+    font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey-dim);
+  }
+  .mockbar strong{color:var(--white);font-weight:500}
+  .mockbar .spacer{flex:1}
+  .tgl{
+    display:inline-flex;align-items:center;gap:7px;background:var(--ink-3);
+    border:1px solid var(--line);color:var(--grey);padding:5px 11px;cursor:pointer;
+    font:inherit;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .tgl:hover{border-color:var(--grey-dim);color:var(--white)}
+  .tgl[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:#1A0800}
+  .dot{width:6px;height:6px;background:currentColor;display:block}
+
+  /* ---------- design notes ---------- */
+  .note{display:none;margin:16px 0 0}
+  body.notes .note{display:block}
+  .note-in{
+    border-left:2px solid var(--orange);background:rgba(244,93,1,.07);
+    padding:11px 14px;font-size:13px;line-height:1.5;color:#F0D9CB;max-width:64ch;text-align:left;
+  }
+  .note-in b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--orange);margin-bottom:4px;font-weight:500}
+  .light .note-in{background:rgba(244,93,1,.09);color:#6B3308}
+  .light .note-in b{color:#B34706}
+
+  /* ---------- nav ---------- */
+  .nav{position:sticky;top:37px;z-index:80;background:rgba(10,10,11,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+  .nav-in{max-width:var(--wrap);margin:0 auto;display:flex;align-items:center;gap:30px;padding:13px var(--gut)}
+  .logo{font-size:21px;font-weight:900;letter-spacing:-.04em}
+  .logo i{color:var(--orange);font-style:normal}
+  .nav-links{display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14.5px;color:var(--grey);margin-left:auto}
+  .nav-links a{display:inline-flex;align-items:center;gap:7px}
+  .nav-links a:hover{color:var(--white)}
+  .nav-links svg{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;opacity:.65}
+  .nav-links a:hover svg{opacity:1}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;font-weight:800;font-size:15px;border:1px solid transparent;cursor:pointer;font-family:inherit}
+  .btn-p{background:var(--orange);color:#1A0800}
+  .btn-p:hover{background:var(--orange-soft)}
+  .btn-s{border-color:var(--line);color:var(--white)}
+  .btn-s:hover{border-color:var(--grey-dim);background:var(--ink-2)}
+  .btn-ghost{border:1px solid var(--paper-line);color:var(--paper-ink)}
+  .btn-ghost:hover{background:var(--paper-2)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;text-align:center;padding:clamp(48px,6.5vw,86px) 0 clamp(38px,4.5vw,58px)}
+  #mosaic{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero-in{position:relative}
+
+  /* The brand line, promoted out of the footer. Sized above the mono
+     eyebrow so it reads as a statement rather than a label. */
+  .hero-tag{
+    font-family:var(--mono);font-size:13px;font-weight:500;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--orange);
+    margin:0 0 20px;
+  }
+
+  .hero h1{font-size:clamp(36px,5.9vw,74px);letter-spacing:-.04em;line-height:1.04;max-width:19ch;margin-inline:auto}
+  .hero h1 em{font-style:normal;color:var(--orange)}
+  .hero .lede{font-size:clamp(15px,1.35vw,17.5px);color:var(--grey);max-width:47ch;margin:22px auto 30px;line-height:1.5}
+
+  .capture{display:flex;gap:0;max-width:520px;margin:0 auto;border:1px solid var(--line);background:var(--ink-2);padding:6px}
+  .capture input{flex:1;min-width:0;background:transparent;border:0;color:var(--white);padding:13px 16px;font:inherit;font-size:15.5px}
+  .capture input::placeholder{color:var(--grey-dim)}
+  .capture input:focus{outline:none}
+  .capture:focus-within{border-color:var(--orange)}
+
+  /* The low-commitment path: sample the work before handing over an email. */
+  .sample{
+    margin:16px 0 0;font-size:14.5px;color:var(--grey);
+  }
+  .sample a{border-bottom:1px solid rgba(244,93,1,.45);padding-bottom:2px;color:var(--white)}
+  .sample a:hover{color:var(--orange);border-color:var(--orange)}
+
+  /* ---------- light panel ---------- */
+  .light{background:var(--paper);color:var(--paper-ink)}
+  .light-top{border-radius:26px 26px 0 0;margin-top:6px}
+  .sec{padding:clamp(52px,7vw,84px) 0}
+  .sec-c{text-align:center;max-width:60ch;margin:0 auto clamp(28px,4vw,42px)}
+  .sec-c h2{font-size:clamp(30px,4.2vw,50px);letter-spacing:-.035em}
+  .sec-c p{margin:12px 0 0;font-size:17px;color:var(--paper-grey)}
+  .light .eyebrow{color:var(--paper-grey)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-dim);margin:0 0 12px}
+  .eyebrow b{color:var(--orange);font-weight:500}
+
+  .chips{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:32px}
+  .chip{
+    font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    background:transparent;border:1px solid var(--paper-line);color:var(--paper-grey);
+    padding:8px 15px;cursor:pointer;border-radius:999px;
+  }
+  .chip:hover{border-color:var(--paper-ink);color:var(--paper-ink)}
+  .chip[aria-pressed="true"]{background:var(--paper-ink);border-color:var(--paper-ink);color:var(--paper-2)}
+
+  .feat{display:grid;grid-template-columns:1fr;gap:clamp(26px,3.4vw,40px)}
+  .big{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(20px,3vw,38px);align-items:center;border-top:1px solid var(--paper-line);padding-top:clamp(24px,3vw,38px)}
+  .big .shot{aspect-ratio:16/9;background:var(--ink);position:relative;overflow:hidden;display:grid;place-items:center}
+  .big .shot::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 100% at 15% 0%,rgba(244,93,1,.30),transparent 60%)}
+  .shot .ph{position:relative;z-index:1;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6A6570}
+  .big h3{font-size:clamp(23px,2.6vw,32px);letter-spacing:-.03em;line-height:1.15}
+  .big .plus{margin:12px 0 0;color:var(--paper-grey);font-size:16px}
+  .big .lead-tag{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#B34706;display:block;margin-bottom:10px}
+  .byline{font-family:var(--mono);font-size:11px;letter-spacing:.07em;color:var(--paper-grey);margin-top:12px;text-transform:uppercase}
+
+  .mini{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .m-card .shot{aspect-ratio:16/9;background:var(--ink);position:relative;display:grid;place-items:center;overflow:hidden}
+  .m-card .shot::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 100% at 80% 10%,rgba(30,30,226,.34),transparent 62%)}
+  .m-card h4{font-size:17px;margin-top:12px;line-height:1.3;letter-spacing:-.015em}
+  .tagpill{
+    position:absolute;top:10px;left:10px;z-index:2;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    background:var(--paper-2);color:var(--paper-ink);padding:5px 9px;border-radius:999px;
+  }
+  .center-more{display:flex;justify-content:center;margin-top:38px}
+
+  .news4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .n-card{display:grid;gap:9px;align-content:start}
+  .n-card .shot{aspect-ratio:4/3;background:#DDDFE6;border:1px solid var(--paper-line);display:grid;place-items:center}
+  .n-card .shot .ph{color:#9A9CA6}
+  .n-card .src{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+  .n-card h4{font-size:16.5px;line-height:1.3}
+  .n-card p{margin:0;font-size:14.5px;color:var(--paper-grey);line-height:1.45}
+  .n-card .date{font-family:var(--mono);font-size:10.5px;color:#8A8C96;letter-spacing:.06em}
+
+  /* ---------- ad slots ---------- */
+  .adwrap{padding:30px 0}
+  .ad{
+    border:1px dashed var(--line);display:grid;place-items:center;text-align:center;
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--grey-dim);padding:14px;gap:3px;min-height:104px;
+  }
+  .ad small{display:block;font-size:10px;color:#4E4A4C;letter-spacing:.08em}
+  .light .ad{border-color:var(--paper-line);color:var(--paper-grey)}
+  .light .ad small{color:#9A9CA6}
+  body.ads .ad{border-style:solid;background:linear-gradient(120deg,var(--ink-2),var(--ink-3));color:var(--grey)}
+  body.ads .light .ad{background:linear-gradient(120deg,#E1E3EA,#F5F6F9);color:var(--paper-ink)}
+  body.ads .ad .empty{display:none}
+  .ad .sold{display:none}
+  body.ads .ad .sold{display:block}
+  .ad .sold b{color:inherit;font-weight:700;letter-spacing:.04em}
+
+  /* ---------- shows (dark) ---------- */
+  .sec-head{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
+  .sec-head h2{font-size:clamp(27px,3.4vw,40px)}
+  .sec-head p{margin:9px 0 0;color:var(--grey);max-width:52ch;font-size:16px}
+  .more{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);border-bottom:1px solid rgba(244,93,1,.4);padding-bottom:3px}
+  .more:hover{color:var(--orange-soft);border-color:var(--orange-soft)}
+  .light .more{color:#B34706;border-color:rgba(179,71,6,.35)}
+
+  .eps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .ep{display:grid;gap:11px;align-content:start}
+  .ep .thumb{aspect-ratio:16/9;background:var(--ink-3);border:1px solid var(--line);position:relative;display:grid;place-items:center}
+  .ep .thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 20% 0%,rgba(244,93,1,.18),transparent 62%)}
+  .ep:hover .thumb{border-color:var(--grey-dim)}
+  .ep h3{font-size:16.5px;line-height:1.3}
+  .ep .guest{font-size:14px;color:var(--grey);margin:0}
+  .ep .guest b{color:var(--white);font-weight:600}
+  .metaline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-dim)}
+
+  .props{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .prop{border:1px solid var(--line);padding:20px;display:grid;gap:7px;align-content:start;background:var(--ink-2)}
+  .prop:hover{border-color:var(--orange)}
+  .prop h4{font-size:16.5px}
+  .prop p{margin:0;color:var(--grey);font-size:14.5px;line-height:1.45}
+  .prop .kind{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--orange)}
+
+  /* ---------- TensorBlack block → About ---------- */
+  .tb{border-top:1px solid var(--line-soft);position:relative;overflow:hidden}
+  .tb-in{padding:clamp(56px,8vw,96px) 0}
+  .tb-lead{max-width:22ch;font-size:clamp(30px,4.6vw,56px);letter-spacing:-.038em;line-height:1.05}
+  .tb-lead em{font-style:normal;color:var(--orange)}
+  .tb-sub{color:var(--grey);font-size:17px;max-width:52ch;margin:20px 0 32px}
+  .tb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .tb-card{border:1px solid var(--line);background:var(--ink-2);padding:24px;display:grid;gap:10px;align-content:start}
+  .tb-card:hover{border-color:var(--grey-dim)}
+  .tb-card .kind{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--orange)}
+  .tb-card h4{font-size:20px}
+  .tb-card p{margin:0;color:var(--grey);font-size:14.5px;line-height:1.5}
+  .tb-card .facts{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+  .fact{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--grey);border:1px solid var(--line-soft);padding:5px 9px}
+  .faces{display:flex;gap:6px;margin-top:8px}
+  .face{width:28px;height:28px;border-radius:50%;background:var(--ink-3);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:9px;color:#57535A}
+
+  /* ---------- partner + footer ---------- */
+  .partner{border-top:1px solid var(--line-soft);background:var(--ink-2)}
+  .partner-in{display:grid;grid-template-columns:1fr auto;gap:26px 40px;align-items:center;padding:42px 0}
+  .partner h2{font-size:24px}
+  .partner p{margin:8px 0 0;color:var(--grey);max-width:56ch;font-size:15.5px}
+  .channels{display:flex;flex-wrap:wrap;gap:10px}
+  .chan{
+    display:inline-flex;align-items:center;gap:9px;
+    border:1px solid var(--line);border-radius:999px;
+    padding:10px 17px;font-size:14.5px;font-weight:600;color:var(--white);
+  }
+  .chan:hover{border-color:var(--orange);background:var(--ink-3)}
+  .chan svg{width:15px;height:15px;flex:none;fill:currentColor;opacity:.85}
+  .chan:hover svg{opacity:1;color:var(--orange)}
+
+  footer{border-top:1px solid var(--line);padding:44px 0 52px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+  .fgrid h5{margin:0 0 12px;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--grey-dim);font-weight:500}
+  .fgrid ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14.5px;color:var(--grey)}
+  .fgrid a:hover{color:var(--white)}
+  .fbase{margin-top:32px;padding-top:20px;border-top:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:13px;color:var(--grey-dim)}
+  .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+
+  @media (max-width:1000px){
+    .news4{grid-template-columns:1fr 1fr}
+    .eps{grid-template-columns:1fr 1fr}
+    .mini{grid-template-columns:1fr 1fr}
+    .big{grid-template-columns:1fr}
+    .tb-grid,.props{grid-template-columns:1fr}
+    .partner-in{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr 1fr}
+    .nav-in{flex-wrap:wrap;gap:10px 20px}
+    .nav-links{margin-left:0;width:100%;gap:8px 20px;font-size:13.5px}
+  }
+  @media (max-width:560px){
+    .news4,.eps,.mini{grid-template-columns:1fr}
+    .capture{flex-wrap:wrap}
+    .capture input{min-width:100%}
+    .capture .btn{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="mockbar">
+  <strong>Concept mockup</strong> · TensorBlack homepage · v3 · placeholder content
+  <span class="spacer"></span>
+  <button class="tgl" id="btnNotes" aria-pressed="false"><span class="dot"></span> Design notes</button>
+  <button class="tgl" id="btnAds" aria-pressed="false"><span class="dot"></span> Ad slots sold</button>
+</div>
+
+<div class="nav">
+  <div class="nav-in">
+    <a class="logo" href="#"><i>tensor</i>black</a>
+    <nav class="nav-links">
+      <a href="#tb"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.2" r="2.6"/><path d="M2.6 14c0-3 2.4-4.6 5.4-4.6s5.4 1.6 5.4 4.6"/></svg>About</a>
+      <a href="#shows"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><path d="M6.6 5.4l4.2 2.6-4.2 2.6z"/></svg>Videos</a>
+      <a href="#news"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.8" y="3.2" width="12.4" height="9.6" rx="1.2"/><path d="M4.2 6.2h5M4.2 8.6h7.6M4.2 11h7.6"/></svg>AI News</a>
+      <a href="#academy"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.4L15 6l-7 3.6L1 6z"/><path d="M4 7.8v3.4c0 1 1.8 1.8 4 1.8s4-.8 4-1.8V7.8"/></svg>AI Academy</a>
+      <a href="#"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.2c-1.4-1-3-1.4-5.2-1.4v9.4c2.2 0 3.8.4 5.2 1.4 1.4-1 3-1.4 5.2-1.4V2.8c-2.2 0-3.8.4-5.2 1.4z"/><path d="M8 4.2v9.4"/></svg>Perspectives</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <canvas id="mosaic" aria-hidden="true"></canvas>
+  <div class="wrap hero-in">
+    <p class="hero-tag">Driving smarter cancer care.</p>
+    <h1>AI is entering cancer care <em>faster</em> than the evidence can keep up.</h1>
+    <p class="lede">What's proven, what's promising, and what can wait — vetted weekly by working oncologists.</p>
+
+    <form class="capture" onsubmit="return false">
+      <input type="email" id="hero-email" placeholder="Email address" aria-label="Email address">
+      <button class="btn btn-p" type="submit">Join the Network →</button>
+    </form>
+
+    <p class="sample">Not ready yet? <a href="#news">Read this week's issue first →</a></p>
+
+    <div class="note" style="max-width:64ch;margin-inline:auto"><div class="note-in"><b>Revised — Doug's notes</b>Four changes here. The headline was "faster than anyone can evaluate it", which put the failure on the reader; it now reads "faster than the evidence can keep up", which puts it on the field. The subhead was a generic three-imperative line; it is now the OncoPulse promise, which is the only sentence in the copy that says why this source is worth trusting. "Subscribe" became "Join the Network". And the brand line has been promoted out of the footer to sit above the headline. The sample link under the form is the answer to the drop-off point: there is now a way to read the work before handing over an email.</div></div>
+  </div>
+</section>
+
+<!-- ============ LATEST ISSUES ============ -->
+<div class="light light-top">
+  <section class="sec" id="news">
+    <div class="wrap">
+      <div class="sec-c">
+        <p class="eyebrow">Read</p>
+        <h2>Today's AI News</h2>
+      </div>
+
+      <div class="chips" id="newsChips">
+        <button class="chip" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" data-f="brief" aria-pressed="false">The Headlines</button>
+        <button class="chip" data-f="pulse" aria-pressed="false">OncoPulse</button>
+        <button class="chip" data-f="pod" aria-pressed="false">AI and Healthcare Podcast</button>
+      </div>
+
+      <div class="feat">
+        <div class="mini">
+          <article class="m-card" data-n="pod">
+            <div class="shot"><span class="tagpill">AI and Healthcare Podcast</span><span class="ph">Figure TK</span></div>
+            <h4>A machine-learning triage model for identifying baseline distant metastasis in lung cancer</h4>
+            <p class="byline">Frontiers in Oncology · Sep 8</p>
+          </article>
+          <article class="m-card" data-n="pulse">
+            <div class="shot"><span class="tagpill">OncoPulse</span><span class="ph">Figure TK</span></div>
+            <h4>Integrating miRNA profiling and machine learning for thyroid cancer diagnosis</h4>
+            <p class="byline">Frontiers in Oncology · Sep 7</p>
+          </article>
+          <article class="m-card" data-n="brief">
+            <div class="shot"><span class="tagpill">The Headlines</span><span class="ph">Figure TK</span></div>
+            <h4>Dual-region deep learning for bone metastasis prediction in prostate cancer</h4>
+            <p class="byline">Frontiers in Oncology · Sep 7</p>
+          </article>
+          <article class="m-card" data-n="pulse">
+            <div class="shot"><span class="tagpill">OncoPulse</span><span class="ph">Image TK</span></div>
+            <h4>Placeholder industry headline — a funding, clearance, or partnership item</h4>
+            <p class="byline">Source TK · Sep 6</p>
+          </article>
+        </div>
+
+        <article class="big" data-n="pod">
+          <div class="shot"><span class="tagpill">AI and Healthcare</span><span class="ph">Episode artwork — file needed</span></div>
+          <div class="big-body">
+            <span class="lead-tag">In Depth</span>
+            <h3>What AI Can See in Medical Scans That Doctors Can't</h3>
+            <p class="plus">Can a routine retinal scan predict blood cancer up to a decade before diagnosis?</p>
+            <p class="byline">Dr. Anant Madabhushi · Emory University · Ep. 117 · 56 min</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="center-more"><a class="btn btn-ghost" href="#">View all news →</a></div>
+
+      <div class="note"><div class="note-in"><b>Eyebrow added</b>This section and AI Academy had no eyebrow while Shows, The company and Community did. All five major sections now carry one, and the labels name the mode rather than repeating the heading: Read, Learn, Listen &amp; watch, The company, Community.</div></div>
+    </div>
+  </section>
+
+  <div class="wrap adwrap">
+    <div class="ad">
+      <div class="empty">Ad slot · Leaderboard 728×90 / responsive<small>Unsold state — the section still reads as intentional</small></div>
+      <div class="sold"><b>Sponsor creative</b><small>Leaderboard 728×90 · sold state</small></div>
+    </div>
+  </div>
+
+  <!-- ============ AI ACADEMY ============ -->
+  <section class="sec" id="academy">
+    <div class="wrap">
+      <div class="sec-c">
+        <p class="eyebrow">Learn</p>
+        <h2>AI Academy</h2>
+        <p>Courses on putting AI to work in oncology, taught by TensorBlack faculty.</p>
+      </div>
+
+      <div class="chips" id="academyChips">
+        <button class="chip" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" data-f="foundations" aria-pressed="false">Foundations</button>
+        <button class="chip" data-f="clinical" aria-pressed="false">Clinical applications</button>
+        <button class="chip" data-f="ops" aria-pressed="false">Operations</button>
+        <button class="chip" data-f="policy" aria-pressed="false">Regulation &amp; policy</button>
+      </div>
+
+      <div class="news4">
+        <article class="n-card" data-k="foundations">
+          <div class="shot"><span class="ph mono">Course artwork TK</span></div>
+          <span class="src">Foundations · 6 modules</span>
+          <h4>Course title TK</h4>
+          <p>Placeholder description — what someone can do once they've finished.</p>
+          <span class="date">Self-paced · 3 hrs · CME status TK</span>
+        </article>
+        <article class="n-card" data-k="clinical">
+          <div class="shot"><span class="ph mono">Course artwork TK</span></div>
+          <span class="src">Clinical applications · 4 modules</span>
+          <h4>Course title TK</h4>
+          <p>Placeholder description — what someone can do once they've finished.</p>
+          <span class="date">Self-paced · 2 hrs · CME status TK</span>
+        </article>
+        <article class="n-card" data-k="ops">
+          <div class="shot"><span class="ph mono">Course artwork TK</span></div>
+          <span class="src">Operations · 5 modules</span>
+          <h4>Course title TK</h4>
+          <p>Placeholder description — what someone can do once they've finished.</p>
+          <span class="date">Self-paced · 2.5 hrs · CME status TK</span>
+        </article>
+        <article class="n-card" data-k="policy">
+          <div class="shot"><span class="ph mono">Course artwork TK</span></div>
+          <span class="src">Regulation &amp; policy · 3 modules</span>
+          <h4>Course title TK</h4>
+          <p>Placeholder description — what someone can do once they've finished.</p>
+          <span class="date">Self-paced · 90 min · CME status TK</span>
+        </article>
+      </div>
+
+      <div class="center-more"><a class="btn btn-ghost" href="#">Browse all courses →</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SHOWS ============ -->
+<section class="sec" id="shows">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Listen &amp; watch</p>
+        <h2>Latest Podcast Episodes</h2>
+      </div>
+      <a class="more" href="#">View all →</a>
+    </div>
+
+    <div class="eps">
+      <article class="ep">
+        <div class="thumb"></div>
+        <p class="metaline">Ep 8 · 45 min</p>
+        <h3>What If Every Patient Had a Digital Twin? Part 2</h3>
+        <p class="guest">What happens when artificial intelligence becomes a trusted partner in patient care? Healthcare leaders are increasingly exploring how AI can help clinicians make faster, more informed…</p>
+      </article>
+      <article class="ep">
+        <div class="thumb"></div>
+        <p class="metaline">Ep 7 · 45 min</p>
+        <h3>Can We Detect Cancer Before Symptoms Appear?</h3>
+        <p class="guest">Cancer is often most treatable when it's found early—but what if we could detect it before symptoms ever appear? Advances in…</p>
+      </article>
+      <article class="ep">
+        <div class="thumb"></div>
+        <p class="metaline">Ep 6 · 45 min</p>
+        <h3>Could Sleep Affect Cancer Survival?</h3>
+        <p class="guest">Cancer treatment may be missing one of the body's most important biological signals: circadian rhythm. In this…</p>
+      </article>
+    </div>
+
+    <div class="props">
+      <a class="prop" href="#"><span class="kind">Newsletter</span><h4>OncoPulse</h4><p>Every week, our oncologists read the developments in AI and cancer care and tell you what is proven, what is promising, and what can wait. It takes five minutes to read.</p></a>
+      <a class="prop" href="#academy"><span class="kind">Course</span><h4>AI Academy</h4><p>Structured courses on AI in oncology, from foundational concepts to practical use in a clinic. Start with our free course, <em>Immersion into AI in Oncology</em>.</p></a>
+      <a class="prop" href="#"><span class="kind">Podcast</span><h4>AI and Healthcare</h4><p>Dr. Sanjay Juneja and Dr. Doug Flora release a new episode every two weeks, made for the working clinician and short enough to fit a commute.</p></a>
+    </div>
+
+    <div class="note"><div class="note-in"><b>Unresolved from the previous draft</b>Two facts on the live site still contradict the mockup and need reconciling before build: OncoPulse is the newsletter, "five minutes to read", which means the separate "The Headlines" newsletter in the filter chips above does not exist; and the podcast ships every two weeks, not weekly. Episode numbering is inconsistent too — the site shows Ep 6–8 while Apple Podcasts lists around 117. The hero subhead now says "vetted weekly", which is only true of OncoPulse, so confirm that cadence.</div></div>
+  </div>
+</section>
+
+<!-- ============ TENSORBLACK → ABOUT ============ -->
+<section class="tb" id="tb">
+  <div class="wrap tb-in">
+    <p class="eyebrow">The company</p>
+    <h2 class="tb-lead">There is a lot more to <em>TensorBlack</em> than news and education.</h2>
+    <p class="tb-sub">A clinician-led network — programs, events, and a faculty bench spanning the specialties, government affairs, regulation, and infusion.</p>
+    <a class="btn btn-p" href="#">Meet TensorBlack →</a>
+
+    <div class="tb-grid">
+      <a class="tb-card" href="#">
+        <span class="kind">Programs</span>
+        <h4>CEO Round Table</h4>
+        <p>Expert guidance for AI and technology companies: oncology leaders respond to what you are building while the design is still open.</p>
+        <div class="facts"><span class="fact">Roundtable series</span><span class="fact">Next session TK</span></div>
+        <div class="faces"><span class="face">TK</span><span class="face">TK</span><span class="face">TK</span></div>
+      </a>
+      <a class="tb-card" href="#">
+        <span class="kind">Events</span>
+        <h4>SHIFT</h4>
+        <p>Our national summit on innovation in oncology care, built around the decisions in front of cancer programs this year.</p>
+        <div class="facts"><span class="fact">Dates TK</span><span class="fact">Registration TK</span></div>
+        <div class="faces"><span class="face">TK</span><span class="face">TK</span><span class="face">TK</span><span class="face">TK</span></div>
+      </a>
+      <a class="tb-card" href="#">
+        <span class="kind">People</span>
+        <h4>TensorBlack Faculty</h4>
+        <p>The clinicians and specialists behind the shows, programs, and events — filterable by expertise on the About page.</p>
+        <div class="facts"><span class="fact">Mixed panel required</span></div>
+        <div class="faces"><span class="face">TK</span><span class="face">TK</span><span class="face">TK</span><span class="face">TK</span><span class="face">TK</span></div>
+      </a>
+    </div>
+
+    <div class="note"><div class="note-in"><b>Copy tightened, and two cards filled in</b>The subhead dropped "convening oncology through programs" — we convene people, not a specialty. The CEO Round Table and SHIFT descriptions were placeholders; they now carry the agreed descriptions from the Company and CEO Round Table pages. Note the Round Table is expert guidance <em>to</em> AI and technology companies, not cancer program executives comparing notes — an earlier draft had that backwards.</div></div>
+  </div>
+</section>
+
+<section class="partner">
+  <div class="wrap partner-in">
+    <div>
+      <p class="eyebrow">Community</p>
+      <h2>Follow the work wherever you already are.</h2>
+      <p>New episodes, clips, and the week's headlines — on the channels you already use.</p>
+    </div>
+    <div class="channels">
+      <a class="chan" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 12s0-3.9-.5-5.8a3 3 0 0 0-2.1-2.1C18.5 3.6 12 3.6 12 3.6s-6.5 0-8.4.5A3 3 0 0 0 1.5 6.2C1 8.1 1 12 1 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 8.4.5 8.4.5s6.5 0 8.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8zM9.8 15.5v-7l6.1 3.5-6.1 3.5z"/></svg>YouTube</a>
+      <a class="chan" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.8.8 0 0 1-1.1.3c-3-1.8-6.8-2.2-11.2-1.2a.8.8 0 1 1-.3-1.5c4.8-1.1 9-.6 12.3 1.4.4.2.5.7.3 1zm1.2-2.7a1 1 0 0 1-1.3.3c-3.4-2.1-8.6-2.7-12.6-1.5a1 1 0 1 1-.6-1.9c4.6-1.4 10.3-.7 14.2 1.7.5.3.6.9.3 1.4zm.1-2.8C14.8 8.5 8.9 8.3 5.5 9.3a1.2 1.2 0 1 1-.7-2.3c3.9-1.2 10.4-.9 14.5 1.5a1.2 1.2 0 0 1-1.2 2.1z"/></svg>Spotify</a>
+      <a class="chan" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.2 1.2-2.4 1.2-2.5 0 0-2.4-.9-2.4-3.6zM14.2 5.3c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 .1 2-.5 2.7-1.3z"/></svg>Apple Podcasts</a>
+      <a class="chan" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v2.6H4V3zm0 4.3h16V10H4V7.3zM4 11.6 12 16l8-4.4V21l-8-4.4L4 21v-9.4z"/></svg>Substack</a>
+      <a class="chan" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9V7c0-.8.2-1.2 1.4-1.2H17V3h-2.6C11.6 3 10.7 4.4 10.7 6.8V9H9v3h1.7v9H14v-9h2.4l.3-3H14z"/></svg>Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#"><i>tensor</i>black</a>
+        <p class="tag" style="margin-top:10px">Driving Smarter Cancer Care.</p>
+      </div>
+      <div>
+        <h5>Read &amp; watch</h5>
+        <ul><li><a href="#shows">The Headlines</a></li><li><a href="#news">News</a></li><li><a href="#shows">AI and Healthcare</a></li><li><a href="#shows">OncoPulse</a></li><li><a href="#">Perspectives</a></li></ul>
+      </div>
+      <div>
+        <h5>Convene</h5>
+        <ul><li><a href="#tb">CEO Round Table</a></li><li><a href="#tb">SHIFT</a></li><li><a href="#">Upcoming events</a></li><li><a href="#academy">AI Academy</a></li></ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul><li><a href="#tb">About TensorBlack</a></li><li><a href="#tb">Faculty</a></li><li><a href="#">Partner with us</a></li><li><a href="#">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="fbase">
+      <span>© 2026 TensorBlack</span>
+      <span>Concept mockup — placeholder content, not a live site</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.body;
+
+  document.getElementById('btnNotes').addEventListener('click',function(){
+    var on=b.classList.toggle('notes');
+    this.setAttribute('aria-pressed',on?'true':'false');
+  });
+  document.getElementById('btnAds').addEventListener('click',function(){
+    var on=b.classList.toggle('ads');
+    this.setAttribute('aria-pressed',on?'true':'false');
+  });
+
+  function wireChips(chipsId,attr){
+    var chips=document.querySelectorAll('#'+chipsId+' .chip');
+    var items=document.querySelectorAll('['+attr+']');
+    chips.forEach(function(c){
+      c.addEventListener('click',function(){
+        chips.forEach(function(x){x.setAttribute('aria-pressed','false')});
+        c.setAttribute('aria-pressed','true');
+        var f=c.getAttribute('data-f');
+        items.forEach(function(it){
+          it.style.display=(f==='all'||it.getAttribute(attr)===f)?'':'none';
+        });
+      });
+    });
+  }
+  wireChips('newsChips','data-n');
+  wireChips('academyChips','data-k');
+
+  /* ambient brand mosaic behind the hero */
+  var cv=document.getElementById('mosaic'),ctx=cv.getContext('2d');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cells=[],W=0,H=0,S=26,dpr=Math.min(window.devicePixelRatio||1,2);
+
+  function build(){
+    var r=cv.getBoundingClientRect();
+    W=r.width;H=r.height;
+    cv.width=W*dpr;cv.height=H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    cells=[];
+    var cols=Math.ceil(W/S),rows=Math.ceil(H/S);
+    for(var i=0;i<cols;i++){
+      for(var j=0;j<rows;j++){
+        var cx=i/cols, edge=Math.abs(cx-0.5)*2;
+        if(Math.random()<0.05+edge*0.22){
+          cells.push({
+            x:i*S,y:j*S,s:S-2-Math.random()*8,
+            o:0.05+Math.random()*0.26,
+            sp:0.0004+Math.random()*0.0011,
+            ph:Math.random()*Math.PI*2,
+            hot:Math.random()<0.34
+          });
+        }
+      }
+    }
+  }
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    for(var k=0;k<cells.length;k++){
+      var c=cells[k];
+      var a=reduce?c.o:c.o*(0.45+0.55*(0.5+0.5*Math.sin(t*c.sp+c.ph)));
+      ctx.fillStyle=c.hot?'rgba(244,93,1,'+a+')':'rgba(255,255,255,'+(a*0.32)+')';
+      ctx.fillRect(c.x,c.y,c.s,c.s);
+    }
+    if(!reduce) requestAnimationFrame(draw);
+  }
+  build(); draw(0);
+  var rz;
+  window.addEventListener('resize',function(){
+    clearTimeout(rz);
+    rz=setTimeout(function(){build();if(reduce)draw(0);},180);
+  });
+})();
+</script>
+
+</body>
+</html>
