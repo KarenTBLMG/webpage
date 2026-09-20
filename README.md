@@ -683,3 +683,87 @@ had backwards.
   homepage.
 - The original mockup artifact is untouched, so Doug's comments still line up
   with what he reviewed.
+
+## Review round thirteen — one design system across the site
+
+The four deeper pages are re-skinned onto the homepage's system, and the
+navigation is unified across all five.
+
+### The surface changed; the structures did not
+
+`styles.css` keeps every class name. Left rail plus content column, hairline
+rows instead of cards, full-width rules between sections, the coverage board,
+the roster and the executive list are all unchanged in markup. Only the
+tokens moved:
+
+| | Before | Now |
+| --- | --- | --- |
+| Ground | `#FFFFFF` paper | `#0A0A0B` |
+| Primary text | `#000000` | `#FFFFFF` |
+| Accent | `#E8A317` amber | `#F45D01` orange |
+| Display | Archivo | Avenir Next / Nunito Sans |
+| Body | Source Serif 4 | the same sans |
+| Labels | Archivo caps | IBM Plex Mono |
+
+**The serif is the real casualty.** The source spec chose Source Serif 4
+deliberately — "a publication serif, signals peer-reviewed and edited, which
+is the claim the page is making." The homepage has no serif, so keeping it
+would have broken the consistency that was asked for. It is one token to put
+back if that claim matters more than the match.
+
+The rest was anticipated: the spec said the design "does not depend on the
+amber specifically, only on there being exactly one accent."
+
+### The light/dark rule, now stated
+
+This answers the question Doug raised about the homepage. **The light panel
+marks the block you filter and scan. Everything else runs dark.**
+
+- Company: the coverage board is light. "How we work" moved back to dark — it
+  is a statement, not reference material.
+- Faculty: the roster is light. "What faculty disclose" moved to dark.
+- Events and CEO Round Table have no filterable block, so they run dark
+  throughout.
+
+### Navigation
+
+One bar on all five pages, in the homepage's style: wordmark with the accent
+on "tensor", stroke icons, sticky and translucent over the dark ground.
+
+> AI News · Videos · Perspectives · AI Academy · Events · CEO Round Table ·
+> Faculty · About
+
+The homepage's five items and the deeper pages' six were different sets, so
+this is the union. Content first, then convening, with About last, which
+keeps the source document's rule that Company sits in the final position. The
+footer is unified too: brand and tagline, Read & watch, Convene.
+
+### Doug's remaining note, placed
+
+His line now opens the Events sponsorship section, which is where commercial
+conversations actually start:
+
+> We work with providers, founders, marketers, and investors. All of them get
+> the same deal: ask us anything, and get an honest answer from a practicing
+> oncologist, whether you're a sponsor or a stranger.
+
+### Two contrast regressions found and fixed
+
+The re-skin introduced them; a check caught them before publishing.
+
+- The small label grey was **3.94:1** on the dark ground, failing AA for the
+  10–12px text it drives (rail labels, figure captions, footer headings, step
+  numbers). Now `#828082`, **5.05:1**.
+- The portrait placeholder label was **2.05:1** on the dimmed tile. Now the
+  panel's own grey, **4.84:1**.
+
+Everything else clears AA: body text 7.67:1, the accent 6.04:1, button text
+on the accent 5.95:1, and the light panel 16.46:1.
+
+### Open
+
+- **Nav has eight items.** It fits on one row at desktop and wraps below
+  1040px. If that is too many, Videos and Perspectives are the candidates to
+  merge.
+- **"AI News" and "Videos" have no pages yet**, so those two nav links point
+  at paths that do not exist.
