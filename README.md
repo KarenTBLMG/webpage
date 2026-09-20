@@ -563,3 +563,72 @@ section, "Informed, aligned, and shaped", ties each clause to something real:
 decisions informed by Perspectives and the AI Academy, alignment through
 SHIFT and the CEO Round Table, and the future shaped by faculty who are
 deciding it rather than commenting on it. The page is eight sections.
+
+## Review round eleven — Doug's comments
+
+### Applied: the rationale behind removing faculty nominations
+
+Nominations were removed from the site in earlier rounds. Doug's note
+records *why*, which matters more than the removal itself and should survive
+any future pressure to add an inbound route back:
+
+> Faculty nominations intentionally removed from this list — not a route we
+> want surfaced here — as we want to be in the driver's seat with invites and
+> not telling important people they weren't good enough after they nominate
+> themselves.
+
+That is the standing reason. If anyone proposes a "nominate a colleague"
+form, this is the answer.
+
+### Not applied: most of this feedback is about a page that is not in this repository
+
+Items 1 through 7 describe a home page with a dark full-bleed hero, a
+scattered orange and grey square pattern, email capture above the fold, and
+sections for Today's AI News, In-Depth, AI Academy, Podcast, cross-promo,
+Company, Programs/Events/People, and Community. It quotes copy including
+"Driving smarter cancer care.", "AI is entering cancer care faster than
+anyone can evaluate it.", "Navigate this week's oncology and AI headlines",
+"Convening oncology through programs", a Subscribe CTA, "LISTEN & WATCH" and
+"THE COMPANY" eyebrows, and OncoPulse.
+
+None of that exists here. Verified by search across all four pages:
+
+| Element described | In this repo |
+| --- | --- |
+| OncoPulse, Today's AI News, In-Depth, Community | absent |
+| "Driving smarter cancer care." | absent |
+| "AI is entering cancer care faster than anyone can evaluate it." | absent |
+| "Convening oncology through programs" | absent |
+| Email capture, any form or input | none on any page |
+| Dark full-bleed hero | none; the only tinted band is the light `--field` grey |
+| Eyebrow labels | every section on every page already carries a rail label |
+
+The four pages here are Company, Events, CEO Round Table, and Faculty.
+
+The likely subject is the **TensorBlack Front Door** artifact, shared into
+this session at the very start and never readable — reads return "this
+artifact is served to you as a public (non-member) reader."
+
+### Held for when that page arrives
+
+Worth keeping regardless of which page it lands on:
+
+- **"Driving smarter cancer care."** Doug is right that it is the strongest
+  sentence available and is wasted in a footer.
+- **"AI is entering cancer care faster than the evidence can keep up."**
+  Fixes the original, which blamed the reader for not keeping up.
+- **"What's proven, what's promising, and what can wait — vetted weekly by
+  working oncologists."** Replaces a generic newsletter line with a reason to
+  trust the source.
+- **"Join the Network"** over "Subscribe".
+- **"A clinician-led network — programs, events, and a faculty bench spanning
+  the specialties, government affairs, regulation, and infusion."** Drops the
+  awkward "convening oncology".
+- **"We work with providers, founders, marketers, and investors. All of them
+  get the same deal: ask us anything, and get an honest answer from a
+  practicing oncologist, whether you're a sponsor or a stranger."**
+- **A lower-commitment way to sample content before the email ask.** Doug's
+  strongest structural point: people drop at an email wall with nothing
+  sampled.
+- **Standardize the light/dark rhythm** on a stated rule, and make eyebrow
+  labels all-or-nothing.
