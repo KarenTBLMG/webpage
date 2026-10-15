@@ -846,3 +846,66 @@ a.event-row:hover .go { background: var(--red); border-color: var(--red); color:
   .reasons li { opacity: 1; }
   .versus .against li s { background-size: 100% 2px; }
 }
+
+/* --------------------------------------------------------------------------
+   Photo carousel — SHIFT 2026
+   A horizontal strip that snaps slide to slide. Swipe, drag, arrow keys or
+   the buttons; advances slowly on its own until someone interacts with it.
+   -------------------------------------------------------------------------- */
+
+.band-top { padding: var(--band) 0 calc(var(--band) * .6); }
+.gallery { position: relative; }
+.gallery .track {
+  display: flex; gap: clamp(12px, 1.6vw, 20px);
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  padding: 0 var(--gut);
+  scroll-padding: 0 var(--gut);
+  scrollbar-width: none;
+  cursor: grab;
+}
+.gallery .track::-webkit-scrollbar { display: none; }
+.gallery .track.dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.gallery .track.dragging img { pointer-events: none; }
+@media (min-width: 1368px) {
+  .gallery .track { padding-left: calc((100vw - var(--wrap)) / 2 + var(--gut)); scroll-padding-left: calc((100vw - var(--wrap)) / 2 + var(--gut)); }
+}
+.slide {
+  position: relative; flex: 0 0 auto; margin: 0;
+  height: clamp(300px, 38vw, 480px);
+  border-radius: 4px; overflow: hidden; scroll-snap-align: start;
+  background: var(--sand);
+}
+.slide img {
+  height: 100%; width: auto; max-width: none; display: block;
+  transform: scale(1.04); transition: transform 1.4s var(--ease), filter .6s;
+  user-select: none; -webkit-user-drag: none;
+}
+.slide:hover img { transform: scale(1); }
+.slide figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 40px 20px 16px; color: #fff; font: 500 14px/1.3 var(--sans);
+  background: linear-gradient(transparent, rgba(7,23,40,.75));
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+.slide:hover figcaption, .slide.current figcaption { opacity: 1; transform: none; }
+@media (max-width: 760px) {
+  .slide { height: auto; width: 82vw; aspect-ratio: 3 / 2; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; }
+  .slide figcaption { opacity: 1; transform: none; }
+}
+
+.gallery-ui { display: flex; align-items: center; gap: 28px; margin-top: 28px; }
+.gallery-progress { flex: 1; height: 2px; background: var(--line); position: relative; overflow: hidden; }
+.gallery-progress i { position: absolute; inset: 0; background: var(--red); transform-origin: left; transform: scaleX(var(--p, .1)); transition: transform .4s var(--ease); }
+.gallery-btns { display: flex; gap: 10px; }
+.gbtn {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 1px solid var(--ink); background: transparent; color: var(--ink);
+  font: 400 20px/1 var(--sans); cursor: pointer;
+  transition: background .3s, color .3s, transform .4s var(--ease), opacity .3s;
+}
+.gbtn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.gbtn:active { transform: scale(.94); }
+.gbtn[disabled] { opacity: .3; pointer-events: none; }

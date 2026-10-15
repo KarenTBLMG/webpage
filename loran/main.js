@@ -303,3 +303,82 @@
     }).observe(canvas);
   }
 })();
+
+/* ======================================================================
+   Photo carousel
+   ====================================================================== */
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-carousel]').forEach(root => {
+    const track = root.querySelector('.track');
+    const slides = [...track.querySelectorAll('.slide')];
+    const prev = root.querySelector('[data-prev]');
+    const next = root.querySelector('[data-next]');
+    const bar = root.querySelector('.gallery-progress');
+    const padLeft = () => parseFloat(getComputedStyle(track).scrollPaddingLeft) || 0;
+
+    const currentIndex = () => {
+      const x = track.scrollLeft + padLeft() + 4;
+      let idx = 0;
+      slides.forEach((s, i) => { if (s.offsetLeft - track.offsetLeft <= x) idx = i; });
+      return idx;
+    };
+    const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    const go = i => {
+      const s = slides[Math.max(0, Math.min(slides.length - 1, i))];
+      track.scrollTo({ left: s.offsetLeft - track.offsetLeft - padLeft(), behavior: reduce ? 'auto' : 'smooth' });
+    };
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const p = max > 0 ? track.scrollLeft / max : 1;
+      if (bar) bar.style.setProperty('--p', Math.max(.08, p));
+      const c = currentIndex();
+      slides.forEach((s, i) => s.classList.toggle('current', i === c));
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = atEnd();
+    };
+    prev.addEventListener('click', () => { stop(); go(currentIndex() - 1); });
+    next.addEventListener('click', () => { stop(); go(currentIndex() + 1); });
+    track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener('resize', update);
+    track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); stop(); go(currentIndex() + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); stop(); go(currentIndex() - 1); }
+    });
+
+    // Drag to scroll with a mouse; touch uses native swipe.
+    let down = false, startX = 0, startL = 0, moved = false;
+    track.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse') return;
+      down = true; moved = false; startX = e.clientX; startL = track.scrollLeft;
+      stop();
+    });
+    window.addEventListener('pointermove', e => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) { moved = true; track.classList.add('dragging'); }
+      track.scrollLeft = startL - dx;
+    });
+    window.addEventListener('pointerup', () => {
+      if (!down) return;
+      down = false; track.classList.remove('dragging');
+      if (moved) go(currentIndex() + (track.scrollLeft > startL ? 1 : 0));
+    });
+
+    // Gentle autoplay: every 4.5s while on screen, until someone interacts.
+    let timer = null, stopped = reduce, visible = false, hovering = false;
+    function stop() { stopped = true; clearInterval(timer); }
+    const tick = () => {
+      if (stopped || hovering || !visible || document.hidden) return;
+      atEnd() ? go(0) : go(currentIndex() + 1);
+    };
+    root.addEventListener('mouseenter', () => { hovering = true; });
+    root.addEventListener('mouseleave', () => { hovering = false; });
+    root.addEventListener('focusin', stop);
+    track.addEventListener('touchstart', stop, { passive: true });
+    track.addEventListener('wheel', e => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) stop(); }, { passive: true });
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: .4 }).observe(root);
+    if (!stopped) timer = setInterval(tick, 4500);
+    update();
+  });
+})();

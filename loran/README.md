@@ -91,8 +91,13 @@ element renders in its final state.
   announced".
 - **Policy statements.** Confirm that "Providers attend free" and the
   partner gets / never gets lists reflect actual policy.
-- **Missing content.** Real event photography, testimonials, team bios and
-  sponsor logos (brief, Questions for LORAN #1) have no slots yet. Add them
-  once the assets exist.
+- **Photos.** The SHIFT 2026 carousel (home page and SHIFT page) uses 12
+  photos from the photographer's "Processed" Drive folder, resized into
+  `images/shift/`. Confirm LORAN has rights to use them on its site, and
+  whether the photographer wants a credit. Captions describe the moment and
+  name no one, because faces were not matched to names. To swap a photo,
+  replace the file and keep its name, or edit the `PHOTOS` list.
+- **Missing content.** Testimonials, team bios and sponsor logos (brief,
+  Questions for LORAN #1) have no slots yet. Add them once the assets exist.
 - **Privacy policy.** It is a draft outline for legal review.
 - **Domain.** Pending the brief's question #4.
