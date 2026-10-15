@@ -62,7 +62,11 @@ All motion is in `main.js`, with no libraries:
 - a marquee
 - a header that hides on scroll
 - a circular-wipe mobile menu
-- the hero canvas
+- the hero canvas: a drifting crowd, 100 of whom gather into one room, then
+  keep moving through three formations (the rings of the logo's O, a
+  spiral, an infinity loop). Nearby dots are linked by faint lines, a
+  signal pulse ripples out every few seconds, and the dots lean away from
+  the cursor.
 
 The canvas pauses when it is off screen. With `prefers-reduced-motion`, every
 element renders in its final state.

@@ -181,101 +181,190 @@
   /* ======================================================================
      Hero: "Who are the 100 people who need to be in this room?"
      A wide field of drifting points — the crowd at the big congresses.
-     A hundred of them are drawn out and seated together in one room.
+     A hundred of them are drawn out and seated together, then the room
+     keeps living: the hundred move through three formations —
+       the rings of the logo's O, a slow spiral, an infinity loop —
+     peers near each other are linked by faint lines, and every few
+     seconds a signal pulse (LORAN was a radio-pulse navigation system)
+     ripples out through the room and the crowd beyond it.
      ====================================================================== */
   const canvas = $('#room');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const DPR = Math.min(window.devicePixelRatio || 1, 2);
-  let W = 0, H = 0, pts = [], seats = [], t0 = performance.now(), mx = 0, my = 0, raf;
   const SEATED = 100;
+  const RED = '#F24A50', CREAM = '#F3F1EC', CROWD = '#8FB0D8';
+  let W = 0, H = 0, cx = 0, cy = 0, R = 0, pts = [], t0 = performance.now(), raf;
+  let px = -1e4, py = -1e4, mx = 0, my = 0;
 
   const rand = (a, b) => a + Math.random() * (b - a);
-  const easeInOut = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  const clamp01 = x => Math.max(0, Math.min(1, x));
+
+  // ---- Formations: each maps seat i at time t (seconds) to a point in
+  //      units of R around the room's centre. Seat 0 is the red dot.
+  const RINGS = [[12, .36, .16], [30, .68, -.1], [57, 1, .06]];
+  function rings(i, t) {
+    if (i === 0) return [0, 0];
+    let j = i - 1;
+    for (const [n, r, w] of RINGS) {
+      if (j < n) { const a = (j / n) * 6.2832 + t * w; return [Math.cos(a) * r, Math.sin(a) * r]; }
+      j -= n;
+    }
+    return [0, 0];
+  }
+  function spiral(i, t) {
+    if (i === 0) return [0, 0];
+    const a = i * 2.39996 + t * .12, r = 1.08 * Math.sqrt(i / SEATED);
+    return [Math.cos(a) * r, Math.sin(a) * r * .92];
+  }
+  function infinity(i, t) {
+    if (i === 0) return [0, 0];
+    const s = (i / (SEATED - 1)) * 6.2832 + t * .18, d = 1 + Math.sin(s) ** 2;
+    return [1.25 * Math.cos(s) / d, 1.25 * Math.sin(s) * Math.cos(s) / d];
+  }
+  const FORMS = [rings, spiral, infinity];
+  const HOLD = 7.5, MORPH = 2.6, CYCLE = HOLD + MORPH;
+  const GATHER = 3.2;      // seconds for the crowd-to-room entrance
+  const PULSE = 4.2;       // seconds between signal pulses
 
   function layout() {
     const r = canvas.getBoundingClientRect();
     W = r.width; H = r.height;
     canvas.width = W * DPR; canvas.height = H * DPR;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-
     const mobile = W < 760;
-    const cx = mobile ? W * .62 : W * .77;
-    const cy = mobile ? 190 : H * .42;
-    const R = mobile ? Math.min(78, W * .2) : Math.min(W, H) * .22;
-
-    // Seats: a phyllotaxis disc — evenly packed, no rows, no head table.
-    seats = [];
-    for (let i = 0; i < SEATED; i++) {
-      const a = i * 2.39996323, rr = R * Math.sqrt((i + .5) / SEATED);
-      seats.push({ x: cx + Math.cos(a) * rr, y: cy + Math.sin(a) * rr });
-    }
+    cx = mobile ? W * .62 : W * .76;
+    cy = mobile ? 190 : H * .44;
+    R = mobile ? Math.min(78, W * .2) : Math.min(W, H) * .21;
     const crowd = mobile ? 380 : 900;
     if (pts.length !== crowd) {
       pts = [];
       for (let i = 0; i < crowd; i++) {
         pts.push({
-          x: rand(0, W), y: rand(0, H),
-          vx: rand(-.12, .12), vy: rand(-.08, .08),
+          x: rand(0, W), y: rand(0, H), vx: rand(-.12, .12), vy: rand(-.08, .08),
           r: rand(.6, 1.5), a: rand(.12, .45),
-          seat: i < SEATED ? i : -1,
-          delay: i < SEATED ? rand(0, 1400) : 0,
-          sx: 0, sy: 0
+          seat: i < SEATED ? i : -1, delay: i < SEATED ? rand(0, 1.4) : 0,
+          ox: 0, oy: 0, dx: 0, dy: 0
         });
       }
+      pts.forEach(p => { if (p.seat >= 0) { p.ox = p.x; p.oy = p.y; } });
     }
-    pts.forEach(p => { if (p.seat >= 0) { p.sx = p.x; p.sy = p.y; } });
-    ring.cx = cx; ring.cy = cy; ring.R = R;
   }
-  const ring = { cx: 0, cy: 0, R: 0 };
+
+  // Where seat i should be at time t, in px, before pulses and pointer.
+  function target(i, t) {
+    const c = Math.floor(t / CYCLE), local = t - c * CYCLE;
+    const from = FORMS[c % FORMS.length], to = FORMS[(c + 1) % FORMS.length];
+    const k = ease(clamp01((local - HOLD - (i / SEATED) * .5) / (MORPH - .5)));
+    const a = from(i, t), b = to(i, t);
+    return [cx + (a[0] + (b[0] - a[0]) * k) * R, cy + (a[1] + (b[1] - a[1]) * k) * R];
+  }
+
+  const seatXY = new Float32Array(SEATED * 2);
 
   function draw(now) {
-    const el = reduce ? 1e9 : now - t0;
+    const t = reduce ? 0 : (now - t0) / 1000;
+    const tf = Math.max(0, t - GATHER);            // formation clock starts once seated
     ctx.clearRect(0, 0, W, H);
-    const px = mx * 10, py = my * 10;
+    const ox = mx * 10, oy = my * 10;
 
-    // The room's boundary draws itself once the seats start to fill.
-    const rp = Math.min(1, Math.max(0, (el - 1600) / 1600));
+    // Signal pulse: radius grows from the centre, then fades.
+    const pp = reduce ? -1 : ((t - GATHER) % PULSE) / PULSE;
+    const waveR = pp >= 0 && t > GATHER ? pp * R * 3.2 : -1;
+    const band = R * .16;
+
+    // Room boundary draws itself during the entrance, then slowly turns.
+    const rp = clamp01((t - 1.4) / 1.6);
     if (rp > 0) {
+      ctx.save();
+      ctx.translate(cx + ox * .4, cy + oy * .4);
+      ctx.rotate(reduce ? 0 : t * .03);
       ctx.beginPath();
-      ctx.arc(ring.cx + px * .4, ring.cy + py * .4, ring.R * 1.22, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * easeInOut(rp));
-      ctx.strokeStyle = 'rgba(188,211,238,.35)'; ctx.lineWidth = 1; ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(ring.cx + px * .4, ring.cy + py * .4, ring.R * 1.55, 0, Math.PI * 2);
-      ctx.setLineDash([2, 8]);
+      ctx.arc(0, 0, R * 1.32, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * ease(rp));
+      ctx.strokeStyle = 'rgba(188,211,238,.32)'; ctx.lineWidth = 1; ctx.stroke();
+      ctx.setLineDash([2, 9]);
+      ctx.beginPath(); ctx.arc(0, 0, R * 1.62, 0, 6.2832);
       ctx.strokeStyle = `rgba(188,211,238,${.14 * rp})`; ctx.stroke();
       ctx.setLineDash([]);
+      ctx.restore();
+    }
+    if (waveR > 0) {
+      ctx.beginPath(); ctx.arc(cx + ox * .4, cy + oy * .4, waveR, 0, 6.2832);
+      ctx.strokeStyle = RED; ctx.globalAlpha = .38 * (1 - pp) ** 1.5; ctx.lineWidth = 1.2; ctx.stroke();
+      ctx.globalAlpha = 1; ctx.lineWidth = 1;
     }
 
+    // Crowd: drifts, keeps clear of the room, brightens as the pulse passes.
+    ctx.fillStyle = CROWD;
     for (const p of pts) {
-      if (p.seat < 0) {
+      if (p.seat >= 0) continue;
+      if (!reduce) {
         p.x += p.vx; p.y += p.vy;
         if (p.x < -5) p.x = W + 5; if (p.x > W + 5) p.x = -5;
         if (p.y < -5) p.y = H + 5; if (p.y > H + 5) p.y = -5;
-        // The crowd keeps clear of the room.
-        const dx = p.x - ring.cx, dy = p.y - ring.cy, d = Math.hypot(dx, dy), lim = ring.R * 1.35;
-        let alpha = p.a;
-        if (d < lim) alpha *= Math.max(0, (d - ring.R) / (lim - ring.R));
-        ctx.globalAlpha = alpha;
-        ctx.fillStyle = '#8FB0D8';
-        ctx.beginPath(); ctx.arc(p.x + px * .15, p.y + py * .15, p.r, 0, 6.283); ctx.fill();
-      } else {
-        const s = seats[p.seat];
-        const k = easeInOut(Math.min(1, Math.max(0, (el - 500 - p.delay) / 2200)));
-        const breathe = reduce ? 0 : Math.sin(now / 1400 + p.seat) * 1.2;
-        const x = p.sx + (s.x - p.sx) * k + px * .4 + breathe * .5;
-        const y = p.sy + (s.y - p.sy) * k + py * .4 + breathe;
-        const hl = p.seat === 0;
-        ctx.globalAlpha = .35 + .65 * k;
-        ctx.fillStyle = hl ? '#EE3A45' : '#F3F1EC';
-        const r = 1.4 + 1.6 * k + (hl ? 1.2 : 0);
-        ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill();
-        if (hl && k > .9) {
-          const pulse = reduce ? .5 : (now / 1800) % 1;
-          ctx.globalAlpha = .5 * (1 - pulse);
-          ctx.strokeStyle = '#EE3A45';
-          ctx.beginPath(); ctx.arc(x, y, r + 14 * pulse, 0, 6.283); ctx.stroke();
+      }
+      const dx = p.x - cx, dy = p.y - cy, d = Math.hypot(dx, dy), lim = R * 1.45;
+      let alpha = p.a;
+      if (d < lim) alpha *= clamp01((d - R * 1.1) / (lim - R * 1.1));
+      if (waveR > 0) alpha += .55 * Math.exp(-(((d - waveR) / band) ** 2)) * (1 - pp);
+      ctx.globalAlpha = Math.min(1, alpha);
+      ctx.beginPath(); ctx.arc(p.x + ox * .15, p.y + oy * .15, p.r, 0, 6.2832); ctx.fill();
+    }
+
+    // The hundred.
+    for (const p of pts) {
+      if (p.seat < 0) continue;
+      const i = p.seat;
+      const [tx, ty] = target(i, tf);
+      const k = ease(clamp01((t - .5 - p.delay) / 2.2));        // entrance
+      let x = p.ox + (tx - p.ox) * k, y = p.oy + (ty - p.oy) * k;
+      // pulse pushes seats outward as it passes
+      if (waveR > 0 && i) {
+        const dx = x - cx, dy = y - cy, d = Math.hypot(dx, dy) || 1;
+        const push = Math.exp(-(((d - waveR) / band) ** 2)) * R * .07 * (1 - pp);
+        x += dx / d * push; y += dy / d * push;
+      }
+      // pointer: seats lean away, eased so it feels soft
+      const qx = x - px, qy = y - py, qd = Math.hypot(qx, qy);
+      const want = qd < 90 ? (90 - qd) / 90 * 18 : 0;
+      p.dx += ((qd ? qx / qd : 0) * want - p.dx) * .08;
+      p.dy += ((qd ? qy / qd : 0) * want - p.dy) * .08;
+      x += p.dx + ox * .4; y += p.dy + oy * .4;
+      seatXY[i * 2] = x; seatXY[i * 2 + 1] = y;
+    }
+
+    // Peers near each other are linked.
+    const link = R * .3, settled = clamp01((t - GATHER + .6) / 1.5);
+    if (settled > 0) {
+      ctx.strokeStyle = 'rgba(188,211,238,1)'; ctx.lineWidth = .6;
+      for (let a = 1; a < SEATED; a++) {
+        const ax = seatXY[a * 2], ay = seatXY[a * 2 + 1];
+        for (let b = a + 1; b < SEATED; b++) {
+          const d = Math.hypot(seatXY[b * 2] - ax, seatXY[b * 2 + 1] - ay);
+          if (d < link) {
+            ctx.globalAlpha = (1 - d / link) * .32 * settled;
+            ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(seatXY[b * 2], seatXY[b * 2 + 1]); ctx.stroke();
+          }
         }
+      }
+      ctx.lineWidth = 1;
+    }
+
+    for (const p of pts) {
+      if (p.seat < 0) continue;
+      const i = p.seat, x = seatXY[i * 2], y = seatXY[i * 2 + 1];
+      const k = ease(clamp01((t - .5 - p.delay) / 2.2));
+      const hl = i === 0;
+      const breathe = reduce ? 0 : Math.sin(t * 1.6 + i) * .35;
+      ctx.globalAlpha = .35 + .65 * k;
+      ctx.fillStyle = hl ? RED : CREAM;
+      const r = 1.4 + 1.5 * k + breathe + (hl ? 2.2 : 0);
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill();
+      if (hl && k > .9 && !reduce) {
+        const ph = (t % 1.8) / 1.8;
+        ctx.globalAlpha = .5 * (1 - ph); ctx.strokeStyle = RED;
+        ctx.beginPath(); ctx.arc(x, y, r + 16 * ph, 0, 6.2832); ctx.stroke();
       }
     }
     ctx.globalAlpha = 1;
@@ -283,24 +372,34 @@
   }
 
   layout();
-  if (reduce) draw(0);
+  if (reduce) { t0 = performance.now() - 1e7; draw(performance.now()); }
   else raf = requestAnimationFrame(draw);
 
   let rt;
   window.addEventListener('resize', () => {
     clearTimeout(rt);
-    rt = setTimeout(() => { layout(); if (reduce) draw(0); }, 150);
+    rt = setTimeout(() => { layout(); if (reduce) draw(performance.now()); }, 150);
   });
   if (!reduce) {
-    canvas.parentElement.addEventListener('pointermove', e => {
+    const hero = canvas.parentElement;
+    hero.addEventListener('pointermove', e => {
       mx = e.clientX / window.innerWidth - .5;
       my = e.clientY / window.innerHeight - .5;
+      const b = canvas.getBoundingClientRect();
+      px = e.clientX - b.left; py = e.clientY - b.top;
     });
-    // Pause when the hero is off screen.
+    hero.addEventListener('pointerleave', () => { px = py = -1e4; });
+    // Pause when the hero is off screen or the tab is hidden.
+    let onScreen = true;
     new IntersectionObserver(([e]) => {
+      onScreen = e.isIntersecting;
       cancelAnimationFrame(raf);
-      if (e.isIntersecting) raf = requestAnimationFrame(draw);
+      if (onScreen) raf = requestAnimationFrame(draw);
     }).observe(canvas);
+    document.addEventListener('visibilitychange', () => {
+      cancelAnimationFrame(raf);
+      if (!document.hidden && onScreen) raf = requestAnimationFrame(draw);
+    });
   }
 })();
 
