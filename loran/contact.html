@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — LORAN</title>
+<meta name="description" content="Request an invitation to a LORAN event, nominate a peer, or get in touch about partnership and press.">
+<meta property="og:title" content="Contact — LORAN">
+<meta property="og:description" content="Request an invitation to a LORAN event, nominate a peer, or get in touch about partnership and press.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#071728">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23071728'/%3E%3Cg fill='%23F3F1EC'%3E%3Ccircle cx='16' cy='7.5' r='1.8'/%3E%3Ccircle cx='23.4' cy='11.8' r='1.8'/%3E%3Ccircle cx='23.4' cy='20.2' r='1.8'/%3E%3Ccircle cx='16' cy='24.5' r='1.8'/%3E%3Ccircle cx='8.6' cy='20.2' r='1.8'/%3E%3Ccircle cx='8.6' cy='11.8' r='1.8'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='2.8' fill='%23D2483A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header light-start">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="LORAN home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-opacity=".35"/><g fill="currentColor"><circle cx="16" cy="7.5" r="1.6"/><circle cx="23.4" cy="11.8" r="1.6"/><circle cx="23.4" cy="20.2" r="1.6"/><circle cx="16" cy="24.5" r="1.6"/><circle cx="8.6" cy="20.2" r="1.6"/><circle cx="8.6" cy="11.8" r="1.6"/></g><circle cx="16" cy="16" r="2.6" fill="#D2483A"/></svg><span class="word">LORAN</span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul><li><a href="events.html">Events</a></li><li><a href="about.html">About</a></li><li><a href="partner.html">Partner With Us</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul>
+      <a class="btn" href="contact.html?type=invitation">Request an invitation <span class="arr" aria-hidden="true">&rarr;</span></a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="band" style="padding-top:clamp(150px,18vw,220px)">
+  <div class="wrap two-col">
+    <div>
+      <p class="eyebrow fade-up">Contact</p>
+      <h1 class="h1 split"><span class="line"><span style="--i:0">Every seat</span></span><span class="line"><span style="--i:1">starts with</span></span><span class="line"><span style="--i:2"><em>a conversation.</em></span></span></h1>
+      <div class="contact-aside mt-l fade-up" style="--d:600ms">
+        <div><h3>Attend</h3><p>Request an invitation, or nominate a colleague who should be in the room. Providers attend free.</p></div>
+        <div><h3>Partner</h3><p>For sponsorship and partnership, see <a class="link" href="partner.html">how partnership works</a>.</p></div>
+        <div><h3>Response time</h3><p>A person on our team reads every message and replies within two business days.</p></div>
+      </div>
+    </div>
+    <div data-form-host class="fade-up" style="--d:300ms">
+      <form class="form" data-static novalidate>
+        <div class="field full"><label for="f-type">I&rsquo;d like to</label>
+          <select id="f-type" name="type">
+            <option value="invitation">Request an invitation</option>
+            <option value="nominate">Nominate a peer</option>
+            <option value="partner">Discuss partnership</option>
+            <option value="press">Press inquiry</option>
+            <option value="general">Something else</option>
+          </select></div>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="f-email">Work email</label><input id="f-email" type="email" name="email" required autocomplete="email"></div>
+        <div class="field"><label for="f-role">Title &amp; role</label><input id="f-role" name="title" required autocomplete="organization-title" placeholder="e.g. Medical Director, Thoracic Oncology"></div>
+        <div class="field"><label for="f-org">Organization</label><input id="f-org" name="organization" required autocomplete="organization"></div>
+        <div class="field full"><label for="f-msg">Anything we should know? <span class="opt">(optional)</span></label><textarea id="f-msg" name="message" placeholder="Your specialty, what you&rsquo;re working on, or who you&rsquo;re nominating"></textarea></div>
+        <div class="full actions"><button class="btn" type="submit">Send <span class="arr" aria-hidden="true">&rarr;</span></button><p class="form-note">See our <a href="privacy.html">privacy policy</a>. We never share your details.</p></div>
+      </form>
+      <div class="form-done" role="status"><h3 class="h3">Thank you.</h3><p class="muted">Your message is with our team. We&rsquo;ll be in touch personally within two business days.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-word" aria-hidden="true">LORAN</div>
+    <div class="footer-top">
+      <div>
+        <a class="logo" href="index.html" aria-label="LORAN home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-opacity=".35"/><g fill="currentColor"><circle cx="16" cy="7.5" r="1.6"/><circle cx="23.4" cy="11.8" r="1.6"/><circle cx="23.4" cy="20.2" r="1.6"/><circle cx="16" cy="24.5" r="1.6"/><circle cx="8.6" cy="20.2" r="1.6"/><circle cx="8.6" cy="11.8" r="1.6"/></g><circle cx="16" cy="16" r="2.6" fill="#D2483A"/></svg><span class="word">LORAN</span></a>
+        <p class="tagline">The room where healthcare&rsquo;s senior leaders decide what&rsquo;s next.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul><li><a href="events.html">Events</a></li><li><a href="about.html">About</a></li><li><a href="partner.html">Partner With Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h3>Attend</h3>
+        <ul><li><a href="contact.html?type=invitation">Request an invitation</a></li><li><a href="contact.html?type=nominate">Nominate a peer</a></li><li><a href="contact.html?type=press">Press</a></li></ul>
+      </div>
+      <div data-form-host>
+        <h3>Field notes</h3>
+        <p class="muted small" style="margin:0 0 6px">Occasional dispatches from the room. No sponsor content.</p>
+        <form class="newsletter" data-static novalidate>
+          <label class="sr-only" for="nl-email">Email address</label>
+          <input id="nl-email" type="email" name="email" placeholder="Your work email" required autocomplete="email">
+          <button type="submit">Subscribe &rarr;</button>
+        </form>
+        <p class="newsletter-done" role="status">Thank you. You&rsquo;re on the list.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> LORAN Media Group, LLC. All rights reserved.</span>
+      <span><a href="privacy.html">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+</body>
+</html>
