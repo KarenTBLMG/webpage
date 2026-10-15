@@ -1,0 +1,19 @@
+# LORAN — Apache/LiteSpeed settings for Hostinger web hosting
+
+# Always use HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+# Old-site redirects (keeps search ranking). Add one line per old page,
+# then remove the leading "#". Examples:
+# Redirect 301 /about-us        /about.html
+# Redirect 301 /sponsors        /partner.html
+# Redirect 301 /contact-us      /contact.html
+
+# Cache static files
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
