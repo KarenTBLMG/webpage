@@ -27,8 +27,8 @@ python3 -m http.server 8000   # then open http://localhost:8000
   in the footer copyright and the privacy policy (Q9). The navigation backstory
   is one small origin note on About and is not used as positioning.
 - **Look (Q10).** It moves off the hot red and the stock-boardroom imagery.
-  The palette is a deep, trustworthy navy with an updated, warmer red
-  (`#D2483A`) used sparingly, on warm paper rather than clinical white. The
+  The palette is a deep, trustworthy navy with an updated true red
+  (`#C41E3A`) used sparingly, on warm paper rather than clinical white. The
   type pairs Newsreader (display, "NEJM") with Inter (reading and UI, "dinner
   conversation"). The whole palette lives in the `:root` block of
   `styles.css`.

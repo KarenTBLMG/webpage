@@ -267,13 +267,13 @@
         const y = p.sy + (s.y - p.sy) * k + py * .4 + breathe;
         const hl = p.seat === 0;
         ctx.globalAlpha = .35 + .65 * k;
-        ctx.fillStyle = hl ? '#E0604F' : '#F3F1EC';
+        ctx.fillStyle = hl ? '#EE3A45' : '#F3F1EC';
         const r = 1.4 + 1.6 * k + (hl ? 1.2 : 0);
         ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill();
         if (hl && k > .9) {
           const pulse = reduce ? .5 : (now / 1800) % 1;
           ctx.globalAlpha = .5 * (1 - pulse);
-          ctx.strokeStyle = '#E0604F';
+          ctx.strokeStyle = '#EE3A45';
           ctx.beginPath(); ctx.arc(x, y, r + 14 * pulse, 0, 6.283); ctx.stroke();
         }
       }
