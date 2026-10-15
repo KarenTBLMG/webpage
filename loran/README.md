@@ -32,15 +32,21 @@ python3 -m http.server 8000   # then open http://localhost:8000
   type pairs Newsreader (display, "NEJM") with Inter (reading and UI, "dinner
   conversation"). The whole palette lives in the `:root` block of
   `styles.css`.
+- **Logo.** `logo.svg` is a vector trace of the existing LORAN Media Group
+  logo with "Media Group" removed (Q9). It is inlined in the header and
+  footer in the brand red, and as a large outline above the footer. It uses
+  `currentColor`, so its colour comes from CSS. Replace the trace with the
+  designer's master vector file once it arrives (brief, "Needed from
+  LORAN" #1).
 - **Voice (Q6–Q7).** Copy is plain, peer-to-peer, never salesy. Lines come
   from the brief: the positioning, "Who are the 100 people…", "Sponsors are
   in the room. They are never in the agenda.", the values and the reasons to
   believe.
 - **One visual idea: the room.** Each graphic is a variation on dots and
-  seats. In the home hero, a crowd drifts and 100 of them are drawn into one
-  room. The scale section shows 320 dots for a 40,000-person congress against
-  the single red dot of a LORAN summit. The format cards, the seat-mix chart
-  on the event page and the logo mark all use the same dots.
+  seats, echoing the rings and dot in the logo's O. In the home hero, a crowd
+  drifts and 100 of them are drawn into one room. The scale section shows 320 dots for a 40,000-person congress against
+  the single red dot of a LORAN summit. The format cards and the seat-mix chart
+  on the event page use the same dots.
 
 ## Motion
 
